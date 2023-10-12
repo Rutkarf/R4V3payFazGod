@@ -24,7 +24,7 @@ export class AppComponent {
 
   getHelloWorld () {
     this.appService.getHome().subscribe((elt) => {
-      console.log('ça a l\'air ok');
+      console.log("🚀 ~ AppComponent ~ this.appService.getHome ~ elt:", elt)
     });
   }
 
