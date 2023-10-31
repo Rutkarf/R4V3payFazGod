@@ -1,0 +1,4 @@
+version: "1"
+services:
+  services_potits_chats_front:
+    image: potitschat/frontend
