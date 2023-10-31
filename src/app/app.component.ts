@@ -5,7 +5,7 @@ import { AppService } from './services/app.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   @ViewChild(IonModal)
@@ -14,17 +14,15 @@ export class AppComponent {
   message = '';
   name = '';
 
-  constructor(
-    private appService: AppService,
-  ) {}
+  constructor(private appService: AppService) {}
 
   ngOnInit() {
     this.getHelloWorld();
   }
 
-  getHelloWorld () {
+  getHelloWorld() {
     this.appService.getHome().subscribe((elt) => {
-      console.log("🚀 ~ AppComponent ~ this.appService.getHome ~ elt:", elt)
+      console.log('🚀 ~ AppComponent ~ this.appService.getHome ~ elt:', elt);
     });
   }
 
