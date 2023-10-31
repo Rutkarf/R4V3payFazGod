@@ -1,4 +1,0 @@
-version: "1"
-services:
-  services_potits_chats_front:
-    image: potit_front
