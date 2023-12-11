@@ -5,6 +5,7 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { HomeComponent } from './components/home/home.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,10 @@ const routes: Routes = [
     path: 'inscription',
     component: InscriptionComponent,
   },
-  // home
+  {
+    path: 'contact',
+    component: ContactComponent,
+  },
   {
     path: '',
     component: HomeComponent,

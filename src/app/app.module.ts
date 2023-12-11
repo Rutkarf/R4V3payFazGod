@@ -12,6 +12,7 @@ import { ConnexionComponent } from './components/connexion/connexion.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HomeComponent } from './components/home/home.component';
     ConnexionComponent,
     InscriptionComponent,
     HomeComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
