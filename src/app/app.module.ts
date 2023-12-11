@@ -11,6 +11,8 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ProfilComponent,
     ConnexionComponent,
     InscriptionComponent,
+    HomeComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
