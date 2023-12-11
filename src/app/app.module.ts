@@ -10,23 +10,25 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    FooterComponent,
     ProfilComponent,
     ConnexionComponent,
-    InscriptionComponent
+    InscriptionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    IonicModule.forRoot()
+    IonicModule.forRoot(),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
