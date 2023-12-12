@@ -7,10 +7,10 @@
             <img [src]="chat.photos[0].url" loading="lazy" decoding="async" class="object-cover w-full h-64" alt="" />
             <div class="p-5 border border-t-0">
                 <p class="mb-3 text-xs font-semibold tracking-wide uppercase">
-                    <a href="/assos/1"
+                    <a href="/associations/1"
                         class="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700"
-                        aria-label="Catégorie" title="Association de Chats">Association : {{chat.association.nom}}</a>
-                    <span class="text-gray-600">— 28 Dec 2020</span>
+                        aria-label="Association" title="L'association">Association : {{chat.association.nom}}</a>
+                    <span class="text-gray-600"> - {{formatDate(chat.createdAt)}}</span>
                 </p>
                 <div href="/animaux/1" aria-label="Animaux" title="En savoir plus"
                     class="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700">
