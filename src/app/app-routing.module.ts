@@ -7,6 +7,7 @@ import { InscriptionComponent } from './components/inscription/inscription.compo
 import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AnimauxListComponent } from './components/animaux/animaux-list/animaux-list.component';
+import { AnimauxDetailsComponent } from './components/animaux/animaux-details/animaux-details.component';
 
 const routes: Routes = [
   {
@@ -26,9 +27,14 @@ const routes: Routes = [
     component: ContactComponent,
   },
   {
+    path: 'animaux/:id',
+    component: AnimauxDetailsComponent,
+  },
+  {
     path: 'animaux',
     component: AnimauxListComponent,
   },
+
   {
     path: '',
     component: HomeComponent,
