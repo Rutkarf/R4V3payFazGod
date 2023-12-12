@@ -13,6 +13,8 @@ import { InscriptionComponent } from './components/inscription/inscription.compo
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { AnimauxListComponent } from './components/animaux/animaux-list/animaux-list.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { ContactComponent } from './components/contact/contact.component';
     InscriptionComponent,
     HomeComponent,
     ContactComponent,
+    AnimauxListComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { ContactComponent } from './components/contact/contact.component';
     FormsModule,
     HttpClientModule,
     IonicModule.forRoot(),
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
