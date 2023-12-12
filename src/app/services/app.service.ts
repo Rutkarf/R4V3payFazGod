@@ -6,12 +6,23 @@ import { Observable, map, share, take } from 'rxjs';
   providedIn: 'root',
 })
 export class AppService {
-  api = 'http://localhost:3000/v1';
+  getbyId(id: number) {
+    throw new Error('Method not implemented.');
+  }
+  api = 'http://localhost:4520/v1';
 
   constructor(private http: HttpClient) {}
 
   getHome(): Observable<any> {
     return this.http.get(this.api).pipe(
+      map((res: any) => res),
+      share(),
+      take(1)
+    );
+  }
+
+  getUsers(id: number): Observable<any> {
+    return this.http.get(this.api + '/users/' + id).pipe(
       map((res: any) => res),
       share(),
       take(1)
