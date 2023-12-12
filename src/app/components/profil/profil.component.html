@@ -1,1 +1,39 @@
-<p>profil works!</p>
+<div class="flex justify-between items-center">
+    <button class="ml-20 bg-orange-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Retour</button>
+    <button class="mr-20 bg-orange-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Modifier</button>
+</div>
+
+<div class="h-16"></div>
+
+<div class="flex justify-center items-center">
+    <div class="ml-50">
+        <img src="../../../assets/photo_profil.jpg" class="mr-3 h-20 sm:h-20" alt="Flowbite Logo" />
+    </div>
+    <div class="mr-50">
+        <label>NOM: {{users.nom}}</label><br>
+        <label>PRENOM: {{users.prenom}}</label><br>
+        <label>MAIL: {{users.email}}</label><br>
+        <label>TELEPHONE: {{users.telephone}}</label><br>
+        <label>ADRESSE POSTALE: {{users.adresse}}</label>
+    </div>
+</div>
+
+<div class="h-16"></div>
+
+<div class="m-10 p-10 justify-center">
+    <h2 class="border-b border-black">Mes favoris</h2>
+    <div class="bg-gray-200 p-4 flex justify-between items-center">
+        <div class="ml-50 flex justify-center items-center h-full">
+            <img src="../../../assets/photo_chat.png" class="mr-3 h-20 sm:h-20" alt="Flowbite Logo" />
+            <p class="m-0">Bernadette</p>
+        </div>
+        <div class="mr-50">
+            <button><fa-icon [icon]="faHeart" title="heart" style="color: red;"></fa-icon></button>
+            <button><fa-icon [icon]="faXmark" title="delete" style="color: black;"></fa-icon></button>
+        </div>
+    </div>
+</div>
+
+<div class="flex justify-center">
+    <button class="bg-orange-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Se déconnecter</button>
+</div>
