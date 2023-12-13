@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Chat } from '../../../interfaces/interfaces';
 import { AppService } from 'src/app/services/app.service';
 import { ActivatedRoute } from '@angular/router';
+import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-animaux-details',
@@ -11,6 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AnimauxDetailsComponent {
   chat: Chat | undefined;
+  faMars = faMars;
+  faVenus = faVenus;
 
   constructor(private route: ActivatedRoute, private appService: AppService) {}
 
