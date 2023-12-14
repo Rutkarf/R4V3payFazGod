@@ -37,4 +37,12 @@ export class AppService {
       take(1)
     );
   }
+
+  getByIdCat(id: number): Observable<Chat> {
+    return this.http.get(this.api + '/chats/' + id).pipe(
+      map((res: any) => res),
+      share(),
+      take(1)
+    );
+  }
 }

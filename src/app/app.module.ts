@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AnimauxListComponent } from './components/animaux/animaux-list/animaux-list.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AnimauxDetailsComponent } from './components/animaux/animaux-details/animaux-details.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HomeComponent,
     ContactComponent,
     AnimauxListComponent,
+    AnimauxDetailsComponent,
   ],
   imports: [
     BrowserModule,

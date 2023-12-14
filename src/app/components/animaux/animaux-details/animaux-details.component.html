@@ -1,0 +1,118 @@
+<div *ngIf="chat" class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+        <div>
+            <p
+                class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+                Catégorie : Chat
+            </p>
+        </div>
+        <button
+            class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">
+            Édition
+        </button>
+
+        <h2
+            class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+            {{ chat.nom }}
+
+
+        </h2>
+        <!-- <p class="text-base text-gray-700 md:text-lg">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque
+            ipsa quae.
+        </p> -->
+
+
+    </div>
+
+
+
+    <div class="grid max-w-screen-lg gap-8 lg:grid-cols-2 sm:mx-auto">
+        <div class="grid grid-cols-2 gap-5">
+            <img *ngIf="chat.photos[0] && chat.photos[0].url" [src]="chat.photos[0].url"
+                class="object-cover w-full h-56 col-span-2 rounded shadow-lg" alt="" />
+            <img *ngIf="chat.photos[1] && chat.photos[1].url" [src]="chat.photos[1].url"
+                class="object-cover w-full h-48 rounded shadow-lg" alt="" />
+            <img *ngIf="chat.photos[2] && chat.photos[2].url" [src]="chat.photos[2].url"
+                class="object-cover w-full h-48 rounded shadow-lg" alt="" />
+        </div>
+        <div class="flex flex-col justify-center">
+            <div class="pb-4 mb-4 border-b">
+                <h6 class="mb-2 font-semibold leading-5">
+                    Sexe :
+                </h6>
+                <p class="text-sm text-gray-900">
+                    {{ chat.sexe ==='MALE' ? 'Je suis un mâle' : 'Je suis une femelle' }}
+                    <fa-icon *ngIf="chat.sexe === 'FEMELLE'" [icon]="faVenus" aria-label="Sexe" title="Femelle"
+                        class="ml-2" style="color: fuchsia;"></fa-icon>
+                    <fa-icon *ngIf="chat.sexe === 'MALE'" [icon]="faMars" aria-label="Sexe" title="Male" class="ml-2"
+                        style="color: Dodgerblue;"></fa-icon>
+                </p>
+            </div>
+            <div class="pb-4 mb-4 border-b">
+                <h6 class="mb-2 font-semibold leading-5">
+                    Age :
+                </h6>
+                <p class="text-sm text-gray-900">
+                    J'ai {{ chat.age }} ans
+                </p>
+            </div>
+
+            <div *ngIf="chat.race" class="pb-4 mb-4 border-b">
+                <h6 class="mb-2 font-semibold leading-5">
+                    Race :
+                </h6>
+                <p class="text-sm text-gray-900">
+                    {{chat.race}}
+                </p>
+            </div>
+
+            <div class="pb-4 mb-4 border-b">
+                <h6 class="mb-2 font-semibold leading-5">
+                    Ententes :
+                </h6>
+                <p class="text-sm text-gray-900" *ngIf="chat.ententeChat !== undefined">
+                    {{chat.ententeChat ? 'Avec les autres chats' : 'Pas avec les autres chats ❌'}}
+                </p>
+                <p class="text-sm text-gray-900" *ngIf="chat.ententeChien !== undefined">
+                    {{chat.ententeChien ? 'Avec les chiens' : 'Pas avec les chiens ❌'}}
+                </p>
+                <p class="text-sm text-gray-900" *ngIf="chat.ententeEnfant !== undefined">
+                    {{chat.ententeEnfant ? 'Avec les enfants' : 'Pas avec les enfants ❌'}}
+                </p>
+            </div>
+
+
+            <div>
+                <h6 class="mb-2 font-semibold leading-5">
+                    Association :
+                </h6>
+                <p class="text-sm text-gray-900">
+                    Je suis pour le moment gardé par l'association
+                    <a [routerLink]="'association/'+chat.association.id">{{ chat.association.nom }}</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- New description block -->
+    <div class="max-w-screen-lg mt-8 md:mx-auto lg:max-w-screen-lg md:mt-12">
+        <h3 class="mb-4 text-xl font-semibold leading-6">Description :</h3>
+        <p class="text-base text-gray-700">
+            {{ chat.description }}
+        </p>
+    </div>
+
+    <div *ngIf="chat.vaccinations" class="max-w-screen-lg mt-8 md:mx-auto lg:max-w-screen-lg md:mt-12">
+        <h3 class="mb-4 text-xl font-semibold leading-6">Santé :</h3>
+        <p class="text-base text-gray-700">
+            {{ chat.vaccinations }}
+        </p>
+    </div>
+    <button
+        class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+        Contacter {{chat.nom }}
+    </button>
+
+
+</div>
