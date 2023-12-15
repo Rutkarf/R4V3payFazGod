@@ -1,1 +1,44 @@
-<p>connexion works!</p>
+<div class="flex flex-wrap min-h-screen w-full content-center justify-center bg-gray-200 py-10">
+  
+    <div class="flex shadow-md">
+      <div class="flex flex-wrap content-center justify-center rounded-l-md bg-white" style="width: 24rem; height: 32rem;">
+        <div class="w-72">
+          <h1 class="text-xl font-semibold">Bon retour par minou <span class="material-symbols-outlined text-orange-600">pets</span></h1>
+  
+          <form class="mt-4">
+            <div class="mb-3">
+              <label class="mb-2 block text-xs font-semibold">Email</label>
+              <input type="email" placeholder="Rentrez votre email" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" />
+            </div>
+  
+            <div class="mb-3">
+              <label class="mb-2 block text-xs font-semibold">Mot de passe</label>
+              <input type="password" placeholder="*****" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" />
+            </div>
+  
+            <div class="mb-3 flex flex-wrap content-center">
+              <a href="#" class="text-xs font-semibold text-orange-500">Mot de passe oublié?</a>
+            </div>
+  
+            <div class="mb-3">
+              <button class="mb-1.5 block w-full text-center text-white bg-orange-600 hover:bg-orange-700 px-2 py-1.5 rounded-md" routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Connexion</button>
+              <button class="flex flex-wrap justify-center w-full border border-gray-300 hover:border-gray-500 px-2 py-1.5 rounded-md">
+                <img class="w-5 mr-2" src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA">
+                Connectez vous avec Google
+              </button>
+            </div>
+          </form>
+  
+          <div class="text-center">
+            <span class="text-xs text-gray-400 font-semibold">Vous n'avez pas de compte? </span>
+            <a href="#" class="text-xs font-semibold text-orange-500" routerLink="/inscription" routerLinkActive="active" ariaCurrentWhenActive="page">Inscrivez vous!</a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="flex flex-wrap content-center justify-center rounded-r-md" style="width: 24rem; height: 32rem;">
+        <img class="w-full h-full bg-center bg-no-repeat bg-cover rounded-r-md" src="../../../assets/pattounes.jpg">
+      </div>
+  
+    </div>
+  </div>

@@ -16,6 +16,9 @@ import { ContactComponent } from './components/contact/contact.component';
 import { AnimauxListComponent } from './components/animaux/animaux-list/animaux-list.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AnimauxDetailsComponent } from './components/animaux/animaux-details/animaux-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,8 @@ import { AnimauxDetailsComponent } from './components/animaux/animaux-details/an
     FormsModule,
     HttpClientModule,
     IonicModule.forRoot(),
+    BrowserAnimationsModule,
+    MatTabsModule,
     FontAwesomeModule,
   ],
   providers: [],
