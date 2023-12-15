@@ -11,6 +11,9 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { AccueilComponent } from './components/accueil/accueil.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    IonicModule.forRoot()
+    IonicModule.forRoot(),
+    BrowserAnimationsModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
