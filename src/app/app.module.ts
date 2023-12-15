@@ -10,7 +10,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
-import { AccueilComponent } from './components/accueil/accueil.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { AnimauxListComponent } from './components/animaux/animaux-list/animaux-list.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AnimauxDetailsComponent } from './components/animaux/animaux-details/animaux-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatTabsModule } from '@angular/material/tabs';
@@ -19,10 +24,14 @@ import { MatTabsModule } from '@angular/material/tabs';
   declarations: [
     AppComponent,
     HeaderComponent,
+    FooterComponent,
     ProfilComponent,
     ConnexionComponent,
     InscriptionComponent,
-    AccueilComponent
+    HomeComponent,
+    ContactComponent,
+    AnimauxListComponent,
+    AnimauxDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,8 +41,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     IonicModule.forRoot(),
     BrowserAnimationsModule,
     MatTabsModule
+    FontAwesomeModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
