@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
+import { faMars, faVenus, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { AppService } from '../../../services/app.service';
 import { Chat } from '../../../interfaces/interfaces';
 import { DatePipe } from '@angular/common';
@@ -13,6 +13,7 @@ import { DatePipe } from '@angular/common';
 export class AnimauxListComponent {
   faMars = faMars;
   faVenus = faVenus;
+  faHeart = faHeart;
   constructor(private appService: AppService, private datePipe: DatePipe) {}
 
   chats: Chat[] = [];
