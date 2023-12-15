@@ -40,7 +40,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     HttpClientModule,
     IonicModule.forRoot(),
     BrowserAnimationsModule,
-    MatTabsModule
+    MatTabsModule,
     FontAwesomeModule,
   ],
   providers: [],
