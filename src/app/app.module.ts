@@ -19,6 +19,7 @@ import { AnimauxDetailsComponent } from './components/animaux/animaux-details/an
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatTabsModule } from '@angular/material/tabs';
+import { NoHeaderFooterDirective } from './no-header-footer.directive';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     ContactComponent,
     AnimauxListComponent,
     AnimauxDetailsComponent,
+    NoHeaderFooterDirective,
   ],
   imports: [
     BrowserModule,

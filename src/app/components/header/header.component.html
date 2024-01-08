@@ -1,4 +1,4 @@
-<header>
+<header noHeaderFooter [restrictedRoutes]="['/connexion', '/inscription']">
     <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a href="#" class="flex items-center">
@@ -57,7 +57,7 @@
                             </div>
                             <input type="email" name="email" id="email"
                                 class="bg-slate-400 block w-full rounded-full border-0 py-1.5 pl-10 text-white placeholder:text-white placeholder focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                placeholder="Search">
+                                placeholder="Recherche">
                         </div>
                     </div>
                 </ul>
