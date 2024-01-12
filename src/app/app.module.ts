@@ -20,6 +20,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { NoHeaderFooterDirective } from './no-header-footer.directive';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthModule } from '@auth0/auth0-angular';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -39,11 +42,16 @@ import { NoHeaderFooterDirective } from './no-header-footer.directive';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     IonicModule.forRoot(),
     BrowserAnimationsModule,
     MatTabsModule,
     FontAwesomeModule,
+    // Auth0 configuration
+    AuthModule.forRoot({
+      ...environment.auth,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
