@@ -9,7 +9,7 @@
                 <p class="mb-3 text-xs font-semibold tracking-wide uppercase">
                     <a [routerLink]="'/animaux/' + chat.id"
                         class="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700"
-                        aria-label="Association" title="L'association">Association : {{chat.association.nom}}</a>
+                        aria-label="Association" title="L'association">{{chat.association.nom}}</a>
                     <span class="text-gray-600"> - {{formatDate(chat.createdAt)}}</span>
                 </p>
                 <fa-icon [icon]="faHeart" aria-label="Favori" title="Favori"
