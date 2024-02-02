@@ -5,7 +5,7 @@
         <div *ngFor="let chat of chats; let index = index"
             class="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
             <img [src]="chat.photos[0].url" loading="lazy" decoding="async" class="object-cover w-full h-64" alt="" />
-            <div class="p-5 border border-t-0">
+            <div class="p-5 border h-full">
                 <p class="mb-3 text-xs font-semibold tracking-wide uppercase">
                     <a [routerLink]="'/animaux/' + chat.id"
                         class="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700"
