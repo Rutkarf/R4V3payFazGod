@@ -5,7 +5,7 @@
         <div *ngFor="let chat of chats; let index = index"
             class="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
             <img [src]="chat.photos[0].url" loading="lazy" decoding="async" class="object-cover w-full h-64" alt="" />
-            <div class="p-5 border h-full">
+            <div class="p-5 border border-t-0">
                 <p class="mb-3 text-xs font-semibold tracking-wide uppercase">
                     <a [routerLink]="'/animaux/' + chat.id"
                         class="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700"
@@ -21,8 +21,21 @@
                         class="ml-2" style="color: fuchsia;"></fa-icon>
                     <fa-icon *ngIf="chat.sexe === 'MALE'" [icon]="faMars" aria-label="Sexe" title="Male" class="ml-2"
                         style="color: Dodgerblue;"></fa-icon>
+
                 </div>
-                <p class="mb-2 text-gray-700" [innerHTML]="sanitizeHtml(chat.description)"></p>
+                <p class="mb-2 text-gray-700">
+                    {{chat.description}}
+                </p>
+                <a [routerLink]="'/animaux/' + chat.id" aria-label=""
+                    class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">
+                    En savoir plus sur {{chat.nom}}
+                </a>
+                <button [routerLink]="'/animaux/' + chat.id + '/modifier'"
+                    class="m-2 focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">
+                    Édition
+                </button>
+
+
             </div>
         </div>
 

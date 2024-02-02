@@ -4,7 +4,6 @@ import { Chat } from '../../../interfaces/interfaces';
 import { AppService } from 'src/app/services/app.service';
 import { ActivatedRoute } from '@angular/router';
 import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-animaux-details',
@@ -15,25 +14,11 @@ export class AnimauxDetailsComponent {
   chat: Chat | undefined;
   faMars = faMars;
   faVenus = faVenus;
-  dataModel: any;
-  description: string = '<p>Le chat est ....</p>';
-  isEditMode: boolean = false;
-  constructor(
-    private route: ActivatedRoute,
-    private appService: AppService,
-    private sanitizer: DomSanitizer
-  ) {}
+
+  constructor(private route: ActivatedRoute, private appService: AppService) {}
 
   ngOnInit() {
     this.getCat();
-  }
-
-  sanitizeHtml(html: string): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(html);
-  }
-
-  toggleEditMode() {
-    this.isEditMode = !this.isEditMode;
   }
 
   getCat() {
@@ -43,13 +28,6 @@ export class AnimauxDetailsComponent {
           this.chat = chat;
         });
       }
-    });
-  }
-
-  updateChat() {
-    this.appService.updateChat(this.chat!).subscribe({
-      error: (error) => console.error('Erreur de mise à jour du chat', error),
-      complete: () => console.log('Chat mis à jour avec succès'),
     });
   }
 }
