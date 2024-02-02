@@ -21,16 +21,8 @@
                         class="ml-2" style="color: fuchsia;"></fa-icon>
                     <fa-icon *ngIf="chat.sexe === 'MALE'" [icon]="faMars" aria-label="Sexe" title="Male" class="ml-2"
                         style="color: Dodgerblue;"></fa-icon>
-
                 </div>
-                <p class="mb-2 text-gray-700" [innerHTML]="sanitizeHtml(chat.description)">
-
-                </p>
-                <a [routerLink]="'/animaux/' + chat.id" aria-label=""
-                    class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">
-                    En savoir plus sur {{chat.nom}}
-                </a>
-
+                <p class="mb-2 text-gray-700" [innerHTML]="sanitizeHtml(chat.description)"></p>
             </div>
         </div>
 
