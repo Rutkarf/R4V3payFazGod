@@ -23,7 +23,6 @@ import { NoHeaderFooterDirective } from './no-header-footer.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment } from 'src/environments/environment';
-import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 
 @NgModule({
   declarations: [
@@ -53,11 +52,8 @@ import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
     AuthModule.forRoot({
       ...environment.auth,
     }),
-    EditorModule,
   ],
-  providers: [
-    { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
