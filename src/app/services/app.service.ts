@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map, share, take } from 'rxjs';
 import { Chat } from '../interfaces/interfaces';
 
@@ -32,11 +32,16 @@ export class AppService {
   }
 
   getAllCats(): Observable<Chat[]> {
-    return this.http.get(this.api + '/chats').pipe(
-      map((res: any) => res),
-      share(),
-      take(1)
-    );
+    return this.http
+      .get(this.api + '/chats', {
+        headers: new HttpHeaders({ 'Access-Control-Allow-Origin': '*' }),
+      })
+      .pipe()
+      .pipe(
+        map((res: any) => res),
+        share(),
+        take(1)
+      );
   }
 
   getByIdCat(id: number): Observable<Chat> {
