@@ -1,0 +1,8 @@
+{
+    "/v1/*": {
+        "target": "https://potits-chats-back.vercel.app/v1",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}
