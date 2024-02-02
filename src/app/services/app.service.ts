@@ -12,7 +12,7 @@ export class AppService {
   }
   // api = 'http://localhost:3000/v1';
   // api = 'https://potits-chats-back.vercel.app/v1';
-  api = '/v1/';
+  api = '/v1';
 
   constructor(private http: HttpClient) {}
 
@@ -33,6 +33,7 @@ export class AppService {
   }
 
   getAllCats(): Observable<Chat[]> {
+    console.log('🚀 ~ AppService ~ getAllCats ~ this.api:', this.api);
     return this.http
       .get(this.api + '/chats', {
         headers: new HttpHeaders({ 'Access-Control-Allow-Origin': '*' }),
