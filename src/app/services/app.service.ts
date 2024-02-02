@@ -45,4 +45,12 @@ export class AppService {
       take(1)
     );
   }
+
+  updateChat(chat: Chat): Observable<Chat> {
+    return this.http.put(this.api + '/chats/' + chat.id, chat).pipe(
+      map((res: any) => res),
+      share(),
+      take(1)
+    );
+  }
 }
