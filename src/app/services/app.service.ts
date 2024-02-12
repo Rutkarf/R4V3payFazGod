@@ -34,15 +34,11 @@ export class AppService {
 
   getAllCats(): Observable<Chat[]> {
     console.log('🚀 ~ AppService ~ getAllCats ~ this.api ICI :', this.api);
-    return this.http
-      .get(this.api + '/chats', {
-        headers: new HttpHeaders({ 'Access-Control-Allow-Origin': '*' }),
-      })
-      .pipe(
-        map((res: any) => res),
-        share(),
-        take(1)
-      );
+    return this.http.get(this.api + '/chats').pipe(
+      map((res: any) => res),
+      share(),
+      take(1)
+    );
   }
 
   getByIdCat(id: number): Observable<Chat> {
