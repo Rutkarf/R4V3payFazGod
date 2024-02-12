@@ -16,14 +16,6 @@ export class AppService {
 
   constructor(private http: HttpClient) {}
 
-  getHome(): Observable<any> {
-    return this.http.get(this.api).pipe(
-      map((res: any) => res),
-      share(),
-      take(1)
-    );
-  }
-
   getUsers(id: number): Observable<any> {
     return this.http.get(this.api + '/users/' + id).pipe(
       map((res: any) => res),
