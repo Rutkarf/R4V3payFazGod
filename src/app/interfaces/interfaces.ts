@@ -27,6 +27,8 @@ export interface Chat {
   associationId: number;
   photos: Photo[];
   association: Association;
+  favoris: Favori[];
+  isFav: boolean;
 }
 
 export interface Photo {
@@ -39,4 +41,11 @@ export interface Photo {
 export interface Association {
   id: number;
   nom: string;
+}
+
+export interface Favori {
+  id?: number;
+  createdAt?: string;
+  chatId: number;
+  utilisateurId: number;
 }
