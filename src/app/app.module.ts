@@ -24,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment } from 'src/environments/environment';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
+import { DonsComponent } from './components/dons/dons.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
     AnimauxListComponent,
     AnimauxDetailsComponent,
     NoHeaderFooterDirective,
+    DonsComponent,
   ],
   imports: [
     BrowserModule,
