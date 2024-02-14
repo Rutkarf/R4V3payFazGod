@@ -25,6 +25,7 @@ import { AuthModule } from '@auth0/auth0-angular';
 import { environment } from 'src/environments/environment';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { DonsComponent } from './components/dons/dons.component';
+import { ErreurComponent } from './components/erreur/erreur.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { DonsComponent } from './components/dons/dons.component';
     AnimauxDetailsComponent,
     NoHeaderFooterDirective,
     DonsComponent,
+    ErreurComponent,
   ],
   imports: [
     BrowserModule,
