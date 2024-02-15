@@ -44,10 +44,10 @@
                     Sexe :
                 </h6>
                 <p *ngIf="!isEditMode" class="text-sm text-gray-900">
-                    {{ chat.sexe ==='MALE' ? 'Je suis un mâle' : 'Je suis une femelle' }}
-                    <fa-icon *ngIf="chat.sexe === 'FEMELLE'" [icon]="faVenus" aria-label="Sexe" title="Femelle"
+                    {{ chat.sexe === sexe.MALE ? 'Je suis un mâle' : 'Je suis une femelle' }}
+                    <fa-icon *ngIf="chat.sexe === sexe.FEMELLE" [icon]="faVenus" aria-label="Sexe" title="Femelle"
                         class="ml-2" style="color: fuchsia;"></fa-icon>
-                    <fa-icon *ngIf="chat.sexe === 'MALE'" [icon]="faMars" aria-label="Sexe" title="Male" class="ml-2"
+                    <fa-icon *ngIf="chat.sexe === sexe.MALE" [icon]="faMars" aria-label="Sexe" title="Male" class="ml-2"
                         style="color: Dodgerblue;"></fa-icon>
                 </p>
                 <div *ngIf="isEditMode">

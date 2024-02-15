@@ -10,9 +10,9 @@ export class AppService {
   getbyId(id: number) {
     throw new Error('Method not implemented.');
   }
-  // api = 'http://localhost:3000/v1';
+  api = 'http://localhost:3000/v1';
   // api = 'https://potits-chats-back.vercel.app/v1';
-  api = '/v1';
+  // api = '/v1';
 
   constructor(private http: HttpClient) {}
 

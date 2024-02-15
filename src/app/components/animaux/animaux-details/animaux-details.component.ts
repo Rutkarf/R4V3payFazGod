@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { Chat } from '../../../interfaces/interfaces';
+import { Chat, Sexe } from '../../../interfaces/interfaces';
 import { AppService } from 'src/app/services/app.service';
 import { ActivatedRoute } from '@angular/router';
 import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
@@ -13,6 +13,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 })
 export class AnimauxDetailsComponent {
   chat: Chat | undefined;
+  sexe = Sexe;
   faMars = faMars;
   faVenus = faVenus;
   dataModel: any;

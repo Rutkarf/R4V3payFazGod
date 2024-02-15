@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faHeart, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { Utilisateur, Role } from 'src/app/interfaces/interfaces';
 import { AppService } from 'src/app/services/app.service';
 
 
@@ -12,13 +13,7 @@ import { AppService } from 'src/app/services/app.service';
 })
 export class ProfilComponent implements OnInit {
   id: number = 14;
-  users: any = {};
-  user: any;
-  nom: string | undefined;
-  prenom: string | undefined;
-  email: string | undefined;
-  telephone: number | undefined;
-  adresse: string | undefined;
+  user?: Utilisateur;
   faHeart = faHeart;
   faXmark = faXmark;
 
@@ -29,23 +24,34 @@ export class ProfilComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (!this.user) {
-      this.getUsers();
-    }
+    // if (!this.users) {
+    //   this.getUsers(this.users);
+    // }
+    this.getUsers();
   }
 
   getUsers() {
-    this.route.params.subscribe((params: any) => {
-      // this.id = Number(params['id']);
-      if (this.id) {
-        this.appService.getUsers(this.id).subscribe((data) => {
-          this.users = data;
-          console.log("🚀 ~ ProfilComponent ~ this.appService.getUsers ~ this.users:", this.users)
-        });
-      }
+    // this.route.params.subscribe((params: any) => {
+    //   users.id = Number(params['id']);
+    //   this.appService.getUsers(users.id).subscribe((data) => {
+    //     users = data;
+    //     console.log("🚀 ~ ProfilComponent ~ this.appService.getUsers ~ this.users:", users)
+    //   });
+    // });
+
+
+    // this.route.params.subscribe((params: any) => {
+    //   users.id = Number(params['id']);
+    //   this.appService.getUsers(users.id).subscribe((users) => {
+    //     this.users = users;
+    //   });
+    // })
+
+    this.appService.getUsers(this.id).subscribe((user) => {
+      this.user = user;
+      console.log(user)
     });
   }
-
 }
 
 

@@ -3,27 +3,33 @@
     <div class="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
 
         <div *ngFor="let chat of chats; let index = index"
-            class="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
-            <img [src]="chat.photos[0].url" loading="lazy" decoding="async" class="object-cover w-full h-64" alt="" />
-            <div class="p-5 border h-full">
-                <p class="mb-3 text-xs font-semibold tracking-wide uppercase">
-                    <a [routerLink]="'/animaux/' + chat.id"
-                        class="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700"
-                        aria-label="Association" title="L'association">{{chat.association.nom}}</a>
-                    <span class="text-gray-600"> - {{formatDate(chat.createdAt)}}</span>
-                </p>
-                <fa-icon [icon]="faHeart" aria-label="Favori" title="Favori"
-                    class="mr-2 fa-xl text-red-500 cursor-pointer"></fa-icon>
-                <div [routerLink]="'/animaux/' + chat.id" aria-label="Animaux" title="En savoir plus"
-                    class="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700">
-                    <a [routerLink]="'/animaux/' + chat.id" class="inline-block">{{chat.nom}}</a>
-                    <fa-icon *ngIf="chat.sexe === 'FEMELLE'" [icon]="faVenus" aria-label="Sexe" title="Femelle"
-                        class="ml-2" style="color: fuchsia;"></fa-icon>
-                    <fa-icon *ngIf="chat.sexe === 'MALE'" [icon]="faMars" aria-label="Sexe" title="Male" class="ml-2"
-                        style="color: Dodgerblue;"></fa-icon>
+            class="overflow-hidden transition-shadow shadow-xl duration-300 bg-white rounded shadow-sm">
+            <a [routerLink]="'/animaux/' + chat.id">
+                <div class="group relative m-0 flex h-full w-96 rounded-xl ring-gray-900/5 sm:mx-auto sm:max-w-lg">
+                    <div class="z-10 h-full w-full overflow-hidden rounded-xl border opacity-80 transition duration-300 ease-in-out group-hover:opacity-100 dark:opacity-80">
+                        <img [src]="chat.photos[0].url" loading="lazy" decoding="async" class="object-cover w-full h-64 animate-fade-in block scale-100 transform object-cover object-center opacity-100 transition duration-300 group-hover:scale-110" alt="" />
+                        <div class="p-5 border h-full">
+                            <p class="mb-3 text-xs font-semibold tracking-wide uppercase">
+                                <a [routerLink]="'/animaux/' + chat.id"
+                                    class="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700"
+                                    aria-label="Association" title="L'association">{{chat.association.nom}}</a>
+                                <span class="text-gray-600"> - {{formatDate(chat.createdAt)}}</span>
+                            </p>
+                            <fa-icon [icon]="faHeart" aria-label="Favori" title="Favori"
+                                class="mr-2 fa-xl text-red-500 cursor-pointer"></fa-icon>
+                            <div [routerLink]="'/animaux/' + chat.id" aria-label="Animaux" title="En savoir plus"
+                                class="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700">
+                                <a [routerLink]="'/animaux/' + chat.id" class="inline-block">{{chat.nom}}</a>
+                                <fa-icon *ngIf="chat.sexe === sexe.FEMELLE" [icon]="faVenus" aria-label="Sexe" title="Femelle"
+                                    class="ml-2" style="color: fuchsia;"></fa-icon>
+                                <fa-icon *ngIf="chat.sexe === sexe.MALE" [icon]="faMars" aria-label="Sexe" title="Male" class="ml-2"
+                                    style="color: Dodgerblue;"></fa-icon>
+                            </div>
+                            <p class="mb-2 text-gray-700" [innerHTML]="sanitizeHtml(chat.description)"></p>
+                        </div>
+                    </div>
                 </div>
-                <p class="mb-2 text-gray-700" [innerHTML]="sanitizeHtml(chat.description)"></p>
-            </div>
+            </a>
         </div>
 
     </div>

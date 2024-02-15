@@ -15,7 +15,7 @@
                 </button>
 
                 <a *ngIf="auth.user$ | async as user"
-                    class="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-orange-600 dark:hover:bg-orange-700 focus:outline-none dark:focus:ring-orange-700"
+                    class="text-white bg-orange-700 hover:bg-orange-800 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-orange-600 dark:hover:bg-orange-700 focus:outline-none"
                     routerLink="/profil" routerLinkActive="active" ariaCurrentWhenActive="page">
                     {{ user.name }}
                 </a>
@@ -26,7 +26,7 @@
                     Déconnexion
                 </button>
 
-                <div *ngIf="(auth.isAuthenticated$ | async) === false">
+                <div *ngIf="!(auth.isAuthenticated$ | async)">
                     <a class="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-orange-600 dark:hover:bg-orange-700 focus:outline-none dark:focus:ring-orange-700"
                         routerLink="/inscription" routerLinkActive="active" ariaCurrentWhenActive="page">
                         Inscription

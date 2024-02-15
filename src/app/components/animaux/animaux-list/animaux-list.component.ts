@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { faMars, faVenus, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { AppService } from '../../../services/app.service';
-import { Chat } from '../../../interfaces/interfaces';
+import { Chat, Sexe } from '../../../interfaces/interfaces';
 import { DatePipe } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
@@ -15,6 +15,7 @@ export class AnimauxListComponent {
   faMars = faMars;
   faVenus = faVenus;
   faHeart = faHeart;
+  sexe = Sexe;
   constructor(
     private appService: AppService,
     private datePipe: DatePipe,
