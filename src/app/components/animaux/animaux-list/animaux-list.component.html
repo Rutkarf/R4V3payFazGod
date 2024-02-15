@@ -15,8 +15,9 @@
                                     aria-label="Association" title="L'association">{{chat.association.nom}}</a>
                                 <span class="text-gray-600"> - {{formatDate(chat.createdAt)}}</span>
                             </p>
-                            <fa-icon [icon]="faHeart" aria-label="Favori" title="Favori"
-                                class="mr-2 fa-xl text-red-500 cursor-pointer"></fa-icon>
+                            <fa-icon [icon]="chat.favoris.length > 0 ? faHeart : fasHeart" aria-label="Favori" title="Favori"
+                                class="mr-2 fa-xl" [ngClass]="{'text-red-500': chat.favoris.length > 0, 'cursor-pointer': true}"
+                                (click)="toggleFavori(chat)></fa-icon>
                             <div [routerLink]="'/animaux/' + chat.id" aria-label="Animaux" title="En savoir plus"
                                 class="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700">
                                 <a [routerLink]="'/animaux/' + chat.id" class="inline-block">{{chat.nom}}</a>

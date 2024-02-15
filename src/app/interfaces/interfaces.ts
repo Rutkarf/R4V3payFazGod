@@ -30,6 +30,7 @@ export interface Chat {
   favoris: Favoris;
   photos: Photo[];
   videos: Video[];
+  isFav: boolean;
 }
 
 export interface Photo {
@@ -78,8 +79,8 @@ export interface Association {
 }
 
 export interface Favoris {
-  id: number;
-  createdAt: string;
+  id?: number;
+  createdAt?: string;
   chatId: number;
   utilisateurId: number;
   chat: Chat;

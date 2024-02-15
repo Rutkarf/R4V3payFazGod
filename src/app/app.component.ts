@@ -16,16 +16,6 @@ export class AppComponent {
 
   constructor(private appService: AppService) {}
 
-  ngOnInit() {
-    this.getHelloWorld();
-  }
-
-  getHelloWorld() {
-    this.appService.getHome().subscribe((elt) => {
-      console.log('🚀 ~ AppComponent ~ this.appService.getHome ~ elt:', elt);
-    });
-  }
-
   cancel() {
     this.modal.dismiss(null, 'cancel');
   }
