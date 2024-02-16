@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AnimauxListComponent } from './components/animaux/animaux-list/animaux-list.component';
 import { AnimauxDetailsComponent } from './components/animaux/animaux-details/animaux-details.component';
+import { DonsComponent } from './components/dons/dons.component';
 
 const routes: Routes = [
   {
@@ -34,7 +35,10 @@ const routes: Routes = [
     path: 'animaux',
     component: AnimauxListComponent,
   },
-
+  {
+    path: 'dons',
+    component: DonsComponent,
+  },
   {
     path: '',
     component: HomeComponent,
