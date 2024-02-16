@@ -90,16 +90,16 @@ export interface Favori {
 export enum Role {
   ADMIN,
   USER,
-  ASSOCIATION
+  ASSOCIATION,
 }
 
 export enum Sexe {
-  FEMELLE,
-  MALE
+  FEMELLE = 'FEMELLE',
+  MALE = 'MALE',
 }
 
 export enum Taille {
-  PETIT,
-  MOYEN,
-  GRAND
+  PETIT = 'PETIT',
+  MOYEN = 'MOYEN',
+  GRAND = 'GRAND',
 }
