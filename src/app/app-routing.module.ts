@@ -9,6 +9,9 @@ import { ContactComponent } from './components/contact/contact.component';
 import { AnimauxListComponent } from './components/animaux/animaux-list/animaux-list.component';
 import { AnimauxDetailsComponent } from './components/animaux/animaux-details/animaux-details.component';
 import { DonsComponent } from './components/dons/dons.component';
+import { AssociationsListComponent } from './components/associations/associations-list/associations-list.component';
+import { AProposComponent } from './components/a-propos/a-propos.component';
+import { CguComponent } from './components/cgu/cgu.component';
 
 const routes: Routes = [
   {
@@ -38,6 +41,18 @@ const routes: Routes = [
   {
     path: 'dons',
     component: DonsComponent,
+  },
+  {
+    path: 'associations',
+    component: AssociationsListComponent,
+  },
+  {
+    path: 'a-propos',
+    component: AProposComponent,
+  },
+  {
+    path: 'mentions-legales',
+    component: CguComponent,
   },
   {
     path: '',

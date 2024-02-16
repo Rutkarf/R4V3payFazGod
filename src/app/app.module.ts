@@ -26,6 +26,9 @@ import { environment } from 'src/environments/environment';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { DonsComponent } from './components/dons/dons.component';
 import { ErreurComponent } from './components/erreur/erreur.component';
+import { AssociationsListComponent } from './components/associations/associations-list/associations-list.component';
+import { AProposComponent } from './components/a-propos/a-propos.component';
+import { CguComponent } from './components/cgu/cgu.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { ErreurComponent } from './components/erreur/erreur.component';
     NoHeaderFooterDirective,
     DonsComponent,
     ErreurComponent,
+    AssociationsListComponent,
+    AProposComponent,
+    CguComponent,
   ],
   imports: [
     BrowserModule,
