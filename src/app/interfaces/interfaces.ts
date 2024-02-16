@@ -27,7 +27,7 @@ export interface Chat {
   associationId: number;
   isVisible: boolean;
   association: Association;
-  favoris: Favoris;
+  favoris: Favori[];
   photos: Photo[];
   videos: Video[];
   isFav: boolean;
@@ -62,7 +62,7 @@ export interface Utilisateur {
   associationId?: number;
   role: Role;
   password?: string;
-  favoris: Favoris[];
+  favoris: Favori[];
   association?: Association;
 }
 
@@ -78,13 +78,13 @@ export interface Association {
   utilisateurs: Utilisateur[];
 }
 
-export interface Favoris {
+export interface Favori {
   id?: number;
   createdAt?: string;
   chatId: number;
   utilisateurId: number;
-  chat: Chat;
-  utilisateur: Utilisateur;
+  chat?: Chat;
+  utilisateur?: Utilisateur;
 }
 
 export enum Role {

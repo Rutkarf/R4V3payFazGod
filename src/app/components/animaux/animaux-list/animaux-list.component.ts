@@ -3,7 +3,7 @@ import { faMars, faVenus, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as fasHeart } from '@fortawesome/free-regular-svg-icons';
 
 import { AppService } from '../../../services/app.service';
-import { Chat, Sexe, Favoris } from '../../../interfaces/interfaces';
+import { Chat, Sexe, Favori } from '../../../interfaces/interfaces';
 import { DatePipe } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
@@ -19,7 +19,7 @@ export class AnimauxListComponent {
   faHeart = faHeart;
   sexe = Sexe;
   fasHeart = fasHeart;
-  
+
   constructor(
     private appService: AppService,
     private datePipe: DatePipe,
