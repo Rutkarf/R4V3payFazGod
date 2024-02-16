@@ -29,6 +29,7 @@ import { ErreurComponent } from './components/erreur/erreur.component';
 import { AssociationsListComponent } from './components/associations/associations-list/associations-list.component';
 import { AProposComponent } from './components/a-propos/a-propos.component';
 import { CguComponent } from './components/cgu/cgu.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,9 @@ import { CguComponent } from './components/cgu/cgu.component';
       ...environment.auth,
     }),
     EditorModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+    }),
   ],
   providers: [
     { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },
