@@ -37,14 +37,17 @@ const routes: Routes = [
   {
     path: 'animaux',
     component: AnimauxListComponent,
+    data: { state: 'animaux' },
   },
   {
     path: 'dons',
     component: DonsComponent,
+    data: { state: 'dons' },
   },
   {
     path: 'associations',
     component: AssociationsListComponent,
+    data: { state: 'associations' },
   },
   {
     path: 'a-propos',
@@ -57,6 +60,7 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    data: { state: 'home' },
   },
 ];
 
