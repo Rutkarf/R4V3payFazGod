@@ -2,6 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { faPowerOff, faUser } from '@fortawesome/free-solid-svg-icons';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -17,6 +18,8 @@ export class HeaderComponent {
     public auth: AuthService,
     @Inject(DOCUMENT) private doc: Document
   ) {}
+
+  envProd = environment.production;
 
   loginWithRedirect() {
     this.auth.loginWithRedirect();

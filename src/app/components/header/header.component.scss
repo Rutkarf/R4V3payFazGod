@@ -9,3 +9,14 @@
     color: #f97316; /* Couleur du texte lorsque le lien est actif */
     border-color: #f97316; /* Couleur de la bordure lorsque le lien est actif */
 }
+
+
+#pasProd {
+    width: 100%;
+    font-weight: bold;
+    color: red;
+    position: fixed;
+    top: 0;
+    padding: 10px;
+    text-align: center;
+}
