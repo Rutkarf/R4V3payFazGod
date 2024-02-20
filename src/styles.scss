@@ -2,6 +2,10 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+// regular style toast
+@import 'ngx-toastr/toastr';
+
+
 body{
     position: relative!important;
     overflow: auto!important;

@@ -1,0 +1,22 @@
+// /* Style de base pour le lien */
+.nav-link {
+  @apply block py-2 pr-4 pl-3 text-gray-700 border-b-2 border-orange-500 border-opacity-0 hover:text-orange-500 hover:border-opacity-100 duration-200 cursor-pointer lg:hover:bg-transparent lg:border-b-2
+  lg:hover:text-orange-500 dark:border-b-2 dark:text-white dark:border-orange-500 dark:border-opacity-0 dark:hover:text-orange-500 dark:hover:border-opacity-100 lg:dark:hover:text-orange-500 lg:dark:hover:bg-transparent;
+}
+
+/* Style pour le lien actif */
+.nav-link.active {
+    color: #f97316; /* Couleur du texte lorsque le lien est actif */
+    border-color: #f97316; /* Couleur de la bordure lorsque le lien est actif */
+}
+
+
+#pasProd {
+    width: 100%;
+    font-weight: bold;
+    color: red;
+    position: fixed;
+    top: 0;
+    padding: 10px;
+    text-align: center;
+}

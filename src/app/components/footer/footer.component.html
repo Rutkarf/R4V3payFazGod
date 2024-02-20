@@ -1,7 +1,7 @@
 <footer noHeaderFooter [restrictedRoutes]="['/connexion', '/inscription']" class="bg-slate-50">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="py-16 text-center"> <!-- Center the content in the container -->
-            <a href="#" class="mx-auto flex items-center justify-center">
+            <a routerLink="/" class="mx-auto flex items-center justify-center">
                 <!-- Center the image and text horizontally and vertically -->
                 <img src="../../../assets/logo-potit-chat.png" class="mr-3 h-20 sm:h-20" alt="Flowbite Logo" />
                 <span class="text-xl text-orange-500 font-semibold whitespace-nowrap dark:text-orange-500">
@@ -11,11 +11,11 @@
             <nav class="mt-10 text-sm" aria-label="quick links">
                 <div class="flex justify-center gap-x-6">
                     <a class="inline-block rounded-lg px-2 py-1 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
-                        href="#about">A propos</a>
+                        routerLink="/a-propos">A propos</a>
                     <a class="inline-block rounded-lg px-2 py-1 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
                         routerLink="/contact">Nous contacter</a>
                     <a class="inline-block rounded-lg px-2 py-1 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
-                        href="#legal">Mentions légales</a>
+                        routerLink="/mentions-legales">Mentions légales</a>
                     <a class="inline-block rounded-lg px-2 py-1 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
                         href="#bug-report">Signaler un bug</a>
                     <a class="inline-block rounded-lg px-2 py-1 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
@@ -45,7 +45,7 @@
                         </path>
                     </svg></a>
             </div>
-            <p class="mt-6 text-sm text-slate-500 sm:mt-0">Copyright © <!-- -->2023<!-- --> Potits Chats. All rights
+            <p class="mt-6 text-sm text-slate-500 sm:mt-0">Copyright © <!-- -->2024<!-- --> Potits Chats. All rights
                 reserved.
             </p>
         </div>

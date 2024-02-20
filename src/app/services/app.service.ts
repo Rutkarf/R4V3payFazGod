@@ -2,17 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, share, take } from 'rxjs';
 import { Chat, Favori } from '../interfaces/interfaces';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppService {
-  getbyId(id: number) {
-    throw new Error('Method not implemented.');
-  }
-  // api = 'http://localhost:3000/v1';
-  // api = 'https://api.potits-chats.com/v1';
-  api = '/v1';
+  // api dev  = 'http://localhost:3000/v1';
+  // api prod = 'https://api.potits-chats.com/v1';
+  api = environment.urlAPI;
 
   constructor(private http: HttpClient) {}
 
