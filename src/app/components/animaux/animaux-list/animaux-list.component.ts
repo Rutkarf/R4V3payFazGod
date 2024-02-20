@@ -6,6 +6,7 @@ import { AppService } from '../../../services/app.service';
 import { Chat, Sexe, Favori } from '../../../interfaces/interfaces';
 import { DatePipe } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-animaux-list',
@@ -14,16 +15,19 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   providers: [DatePipe],
 })
 export class AnimauxListComponent {
+  isLoaded: boolean = false;
   faMars = faMars;
   faVenus = faVenus;
   faHeart = faHeart;
+
   sexe = Sexe;
   fasHeart = fasHeart;
 
   constructor(
     private appService: AppService,
     private datePipe: DatePipe,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private toastr: ToastrService
   ) {}
 
   chats: Chat[] = [];
@@ -62,13 +66,25 @@ export class AnimauxListComponent {
   }
 
   getCats() {
-    this.appService.getAllCats().subscribe((chats) => {
-      this.chats = chats;
-      console.log(
-        '🚀 ~ AnimauxListComponent ~ this.appService.getAllCats ~ this.chats:',
-        this.chats
-      );
-    });
+    this.appService.getAllCats().subscribe(
+      (chats) => {
+        this.chats = chats;
+        console.log(
+          '🚀 ~ AnimauxListComponent ~ this.appService.getAllCats ~ this.chats:',
+          this.chats
+        );
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération des chats', error);
+        this.toastr.error('Erreur lors de la récupération des chats', 'Erreur');
+
+        // Handle the error here
+      },
+      () => {
+        console.log('Fetching cats complete');
+        this.isLoaded = true;
+      }
+    );
   }
 
   sanitizeHtml(html: string): SafeHtml {

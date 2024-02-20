@@ -30,6 +30,7 @@ import { AssociationsListComponent } from './components/associations/association
 import { AProposComponent } from './components/a-propos/a-propos.component';
 import { CguComponent } from './components/cgu/cgu.component';
 import { ToastrModule } from 'ngx-toastr';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ToastrModule } from 'ngx-toastr';
     AssociationsListComponent,
     AProposComponent,
     CguComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
