@@ -1,27 +1,4 @@
-@charset "UTF-8";
 
-/***********************************
-			/* 1. BODY */
-/***********************************/
-
-* {
-    margin: 0;
-    padding: 0;
-    -webkit-text-size-adjust: none;
-}
-
-html, body {
-    height: 100%;
-    overflow: hidden;
-}
-
-body {
-    padding: 0;
-    margin: 0;
-    background: #181828;
-    font-size: 14px;
-    line-height: 1;
-}
 
 label {
     cursor: pointer;

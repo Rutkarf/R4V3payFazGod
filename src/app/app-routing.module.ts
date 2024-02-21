@@ -12,8 +12,14 @@ import { DonsComponent } from './components/dons/dons.component';
 import { AssociationsListComponent } from './components/associations/associations-list/associations-list.component';
 import { AProposComponent } from './components/a-propos/a-propos.component';
 import { CguComponent } from './components/cgu/cgu.component';
+import { ErreurComponent } from './components/erreur/erreur.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+    data: { state: 'home' },
+  },
   {
     path: 'profil',
     component: ProfilComponent,
@@ -58,9 +64,12 @@ const routes: Routes = [
     component: CguComponent,
   },
   {
-    path: '',
-    component: HomeComponent,
-    data: { state: 'home' },
+    path: '**',
+    redirectTo: 'erreur',
+  },
+  {
+    path: 'erreur',
+    component: ErreurComponent,
   },
 ];
 

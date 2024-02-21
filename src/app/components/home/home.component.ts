@@ -13,7 +13,6 @@ export class HomeComponent {
   constructor(private toastr: ToastrService) {}
 
   showSuccess() {
-    // Clique sur la patte du chat pour l'activé
-    this.toastr.success('Voici un exemple de succès', 'Exemple de succès');
+    this.toastr.success('Easter egg trouvé !', 'MIAOUUUUU !');
   }
 }
