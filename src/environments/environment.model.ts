@@ -5,7 +5,12 @@ export interface Environment {
     domain: string;
     clientId: string;
     authorizationParams: {
+      audience: string;
       redirect_uri: string;
     };
+    errorPath: string;
+  };
+  api: {
+    serverUrl: string;
   };
 }

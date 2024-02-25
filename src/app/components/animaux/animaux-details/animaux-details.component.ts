@@ -5,6 +5,7 @@ import { AppService } from 'src/app/services/app.service';
 import { ActivatedRoute } from '@angular/router';
 import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-animaux-details',
@@ -22,7 +23,8 @@ export class AnimauxDetailsComponent {
   constructor(
     private route: ActivatedRoute,
     private appService: AppService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -49,7 +51,17 @@ export class AnimauxDetailsComponent {
 
   updateChat() {
     this.appService.updateChat(this.chat!).subscribe({
-      error: (error) => console.error('Erreur de mise à jour du chat', error),
+      error: (error) => {
+        console.error('error:', error);
+        if (error?.error?.message) {
+          this.toastr.error(
+            error.error.message,
+            'Erreur de mise à jour du chat'
+          );
+        } else {
+          this.toastr.error('Erreur de mise à jour du chat');
+        }
+      },
       complete: () => console.log('Chat mis à jour avec succès'),
     });
   }

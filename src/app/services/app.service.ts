@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, share, take } from 'rxjs';
 import { Chat, Favori } from '../interfaces/interfaces';
 import { environment } from 'src/environments/environment';
+import { DOCUMENT } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,10 @@ export class AppService {
   // api prod = 'https://api.potits-chats.com/v1';
   api = environment.urlAPI;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    @Inject(DOCUMENT) private doc: Document
+  ) {}
 
   getUsers(id: number): Observable<any> {
     return this.http.get(this.api + '/users/' + id).pipe(
