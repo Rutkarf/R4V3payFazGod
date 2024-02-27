@@ -13,6 +13,7 @@ import { AssociationsListComponent } from './components/associations/association
 import { AProposComponent } from './components/a-propos/a-propos.component';
 import { CguComponent } from './components/cgu/cgu.component';
 import { ErreurComponent } from './components/erreur/erreur.component';
+import { AuthGuard } from '@auth0/auth0-angular';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
   {
     path: 'profil',
     component: ProfilComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'connexion',

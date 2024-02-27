@@ -7,7 +7,12 @@ export const environment: Environment = {
     domain: 'dev-potitschat.eu.auth0.com',
     clientId: 'eTJncrvP8o5RyOMhuUlXod6OG4Iqgl2h',
     authorizationParams: {
-      redirect_uri: window.location.origin,
+      audience: 'https://api.potits-chats.com',
+      redirect_uri: 'https://potits-chats.com/callback',
     },
+    errorPath: '/callback',
+  },
+  api: {
+    serverUrl: 'https://api.potits-chats.com',
   },
 };

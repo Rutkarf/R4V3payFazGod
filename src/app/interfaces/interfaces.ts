@@ -103,3 +103,12 @@ export enum Taille {
   MOYEN = 'MOYEN',
   GRAND = 'GRAND',
 }
+
+export interface ApiResponseModel {
+  data: unknown;
+  error: AppErrorModel | null;
+}
+
+export interface AppErrorModel {
+  message: string;
+}
