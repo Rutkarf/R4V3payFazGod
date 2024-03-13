@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Chat, Sexe } from '../../../interfaces/interfaces';
 import { AppService } from 'src/app/services/app.service';
 import { ActivatedRoute } from '@angular/router';
-import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
+import { faMars, faTrash, faUpload, faVenus } from '@fortawesome/free-solid-svg-icons';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
 
@@ -17,6 +17,8 @@ export class AnimauxDetailsComponent {
   sexe = Sexe;
   faMars = faMars;
   faVenus = faVenus;
+  faTrash = faTrash;
+  faUpload = faUpload;
   dataModel: any;
   description: string = '<p>Le chat est ....</p>';
   isEditMode: boolean = false;
@@ -62,7 +64,10 @@ export class AnimauxDetailsComponent {
           this.toastr.error('Erreur de mise à jour du chat');
         }
       },
-      complete: () => console.log('Chat mis à jour avec succès'),
+      complete: () => {
+        this.toastr.success('Chat mis à jour avec succès');
+        this.isEditMode = false;
+      },
     });
   }
 }
