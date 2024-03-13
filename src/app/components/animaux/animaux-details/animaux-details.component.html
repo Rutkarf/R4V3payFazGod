@@ -1,42 +1,64 @@
 <div *ngIf="chat" class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
     <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
         <div>
-            <p
-                class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+            <p class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
                 Catégorie : Chat
             </p>
         </div>
-        <button (click)="toggleEditMode()"
-            class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">
+        <button (click)="toggleEditMode()" class="focus:outline-none bg-white text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">
             Édition
         </button>
 
-        <h2
-            class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
-            <label *ngIf="!isEditMode"> {{ chat.nom }}</label>
-            <input *ngIf="isEditMode" [(ngModel)]="chat.nom" name="nom" style="text-align:center;"
-                (ngModelChange)="updateChat()">
-        </h2>
-        <!-- <p class="text-base text-gray-700 md:text-lg">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque
-            ipsa quae.
-        </p> -->
+        <button (click)="updateChat()" *ngIf="isEditMode"
+        class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">
+            Sauvegarder
+        </button>
+        
+        <div class="flex justify-center">
+            <h1 class="max-w-lg mb-6 font-sans text-2xl font-bold leading-none tracking-tight text-gray-900 sm:text-2xl md:mx-auto">
+                <label *ngIf="!isEditMode" class="block">{{ chat.nom }}</label> <!-- class="block" pour assurer l'affichage correct -->
+                <input *ngIf="isEditMode" [(ngModel)]="chat.nom" name="nom" class="block w-full text-xl text-center rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+            </h1>
+        </div>
     </div>
 
     <div class="grid max-w-screen-lg gap-8 lg:grid-cols-2 sm:mx-auto">
-        <div class="grid grid-cols-2 gap-5">
-            <img *ngIf="chat.photos[0] && chat.photos[0].url" [src]="chat.photos[0].url"
-                class="object-cover w-full h-56 col-span-2 rounded shadow-lg" alt="" />
-            <img *ngIf="chat.photos[1] && chat.photos[1].url" [src]="chat.photos[1].url"
-                class="object-cover w-full h-48 rounded shadow-lg" alt="" />
-            <img *ngIf="chat.photos[2] && chat.photos[2].url" [src]="chat.photos[2].url"
-                class="object-cover w-full h-48 rounded shadow-lg" alt="" />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="relative col-span-1 md:col-span-2">
+                <img [src]="chat.photos[0].url" class="object-cover w-full h-56 md:h-auto rounded shadow-lg" alt="" />
+                <div *ngIf="isEditMode" class="absolute right-0 bottom-0 mb-2 mr-2 space-x-2">
+                    <button
+                        class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 focus:outline-none">Changer
+                        <fa-icon [icon]="faUpload" aria-label="Upload" title="Upload" class="ml-1"></fa-icon>
+                    </button>
+                    <button
+                        class="text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1.5 focus:outline-none">
+                        Supprimer
+                        <fa-icon [icon]="faTrash" aria-label="Supprimer" title="Supprimer" class="ml-1"></fa-icon>
+                    </button>
+                </div>
+            </div>
+            <div *ngFor="let photo of chat.photos.slice(1); let i = index" class="relative">
+                <img [src]="photo.url" class="object-cover w-full h-48 rounded shadow-lg" alt="" />
+                <div *ngIf="isEditMode" class="absolute right-0 bottom-0 mb-2 mr-2 space-x-2">
+                    <button
+                        class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 focus:outline-none">Changer</button>
+                    <button
+                        class="text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1.5 focus:outline-none">
+                        Supprimer
+                        <fa-icon [icon]="faTrash" aria-label="Sexe" title="Male" class="ml-1"></fa-icon>
+                    </button>
+                </div>
+            </div>
         </div>
+        
         <div class="flex flex-col justify-center">
             <div class="pb-4 mb-4 border-b">
-                <h6 class="mb-2 font-semibold leading-5">
+                <label class="mb-2 block text-sm font-medium leading-5 text-gray-900">
                     Sexe :
-                </h6>
+                </label>
+
                 <p *ngIf="!isEditMode" class="text-sm text-gray-900">
                     {{ chat.sexe === sexe.MALE ? 'Je suis un mâle' : 'Je suis une femelle' }}
                     <fa-icon *ngIf="chat.sexe === sexe.FEMELLE" [icon]="faVenus" aria-label="Sexe" title="Femelle"
@@ -45,31 +67,41 @@
                         style="color: Dodgerblue;"></fa-icon>
                 </p>
                 <div *ngIf="isEditMode">
-                    <label>
-                        <input type="radio" name="sexe" [(ngModel)]="chat.sexe" (ngModelChange)="updateChat()"
-                            [value]="'MALE'" />
-                        Male <fa-icon [icon]="faMars" aria-label="Sexe" title="Male" class="ml-2"
-                            style="color: Dodgerblue;"></fa-icon>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="sexe" [(ngModel)]="chat.sexe" (ngModelChange)="updateChat()"
-                            [value]="'FEMELLE'" />
-                        Female <fa-icon [icon]="faVenus" aria-label="Sexe" title="Femelle" class="ml-2"
-                            style="color: fuchsia;"></fa-icon>
-                    </label>
+                    <fieldset class="mt-4">
+                        <div class="space-y-4 sm:flex sm:items-center sm:space-x-10 sm:space-y-0">
+                            <div class="flex items-center">
+                                <input id="male" name="sexe" type="radio" checked=""  
+                                [(ngModel)]="chat.sexe" [value]="'MALE'"
+                                    class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                <label for="male" class="ml-3 block text-sm font-medium leading-6 text-gray-900">
+                                    Male
+                                    <fa-icon [icon]="faMars" aria-label="Sexe" title="Male" class="ml-2"
+                                style="color: Dodgerblue;"></fa-icon>
+                                 </label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="sms" name="sexe" type="radio"
+                                [(ngModel)]="chat.sexe" [value]="'FEMELLE'"
+                                    class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600" >
+                                <label for="sms" class="ml-3 block text-sm font-medium leading-6 text-gray-900">
+                                    Femelle <fa-icon [icon]="faVenus" aria-label="Sexe" title="Femelle" class="ml-2"
+                                    style="color: fuchsia;"></fa-icon>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
                 </div>
             </div>
             <div class="pb-4 mb-4 border-b">
-                <h6 class="mb-2 font-semibold leading-5">
+                <label class="mb-2 block text-sm font-medium leading-5 text-gray-900">
                     Age :
-                </h6>
+                </label>
                 <p *ngIf="!isEditMode" class="text-sm text-gray-900">
                     J'ai {{ chat.age }} ans
                 </p>
                 <p *ngIf="isEditMode" class="text-sm text-gray-900">
                     J'ai
-                    <input *ngIf="isEditMode" [(ngModel)]="chat.age" (ngModelChange)="updateChat()" class="text-center"
+                    <input *ngIf="isEditMode" [(ngModel)]="chat.age"  class="text-center rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6"
                         type="number" min="0" max="50" />
                     ans
                 </p>
@@ -77,18 +109,18 @@
             </div>
 
             <div *ngIf="chat.race" class="pb-4 mb-4 border-b">
-                <h6 class="mb-2 font-semibold leading-5">
+                <label class="mb-2 block text-sm font-medium leading-5 text-gray-900">
                     Race :
-                </h6>
+                </label>
                 <p class="text-sm text-gray-900">
                     {{chat.race}}
                 </p>
             </div>
 
             <div class="pb-4 mb-4 border-b">
-                <h6 class="mb-2 font-semibold leading-5">
+                <label class="mb-2 block text-sm font-medium leading-5 text-gray-900">
                     Ententes :
-                </h6>
+                </label>
                 <div *ngIf="!isEditMode">
                     <p class="text-sm text-gray-900" *ngIf="chat.ententeChat !== undefined">
                         {{chat.ententeChat ? 'Avec les autres chats' : 'Pas avec les autres chats ❌'}}
@@ -102,18 +134,15 @@
                 </div>
 
                 <div *ngIf="isEditMode">
-
                     <div>
                         <!-- Entente avec les autres chats -->
                         <label>
-                            <input type="radio" name="ententeChat" [(ngModel)]="chat.ententeChat" [value]="true"
-                                (ngModelChange)="updateChat()" />
+                            <input type="radio" name="ententeChat" [(ngModel)]="chat.ententeChat" [value]="true"/>
                             Avec les autres chats
                         </label>
 
                         <label>
-                            <input type="radio" name="ententeChat" [(ngModel)]="chat.ententeChat" [value]="false"
-                                (ngModelChange)="updateChat()" />
+                            <input type="radio" name="ententeChat" [(ngModel)]="chat.ententeChat" [value]="false"/>
                             Pas avec les autres chats ❌
                         </label>
                     </div>
@@ -121,14 +150,12 @@
                     <div>
                         <!-- Entente avec les chiens -->
                         <label>
-                            <input type="radio" name="ententeChien" [(ngModel)]="chat.ententeChien" [value]="true"
-                                (ngModelChange)="updateChat()" />
+                            <input type="radio" name="ententeChien" [(ngModel)]="chat.ententeChien" [value]="true" />
                             Avec les chiens
                         </label>
 
                         <label>
-                            <input type="radio" name="ententeChien" [(ngModel)]="chat.ententeChien" [value]="false"
-                                (ngModelChange)="updateChat()" />
+                            <input type="radio" name="ententeChien" [(ngModel)]="chat.ententeChien" [value]="false" />
                             Pas avec les chiens ❌
                         </label>
                     </div>
@@ -136,29 +163,24 @@
                     <div>
                         <!-- Entente avec les enfants -->
                         <label>
-                            <input type="radio" name="ententeEnfant" [(ngModel)]="chat.ententeEnfant" [value]="true"
-                                (ngModelChange)="updateChat()" />
+                            <input type="radio" name="ententeEnfant" [(ngModel)]="chat.ententeEnfant" [value]="true"/>
                             Avec les enfants
                         </label>
 
                         <label>
-                            <input type="radio" name="ententeEnfant" [(ngModel)]="chat.ententeEnfant" [value]="false"
-                                (ngModelChange)="updateChat()" />
+                            <input type="radio" name="ententeEnfant" [(ngModel)]="chat.ententeEnfant" [value]="false"/>
                             Pas avec les enfants ❌
                         </label>
                     </div>
-
                 </div>
-
-
 
             </div>
 
 
             <div>
-                <h6 class="mb-2 font-semibold leading-5">
+                <label class="mb-2 block text-sm font-medium leading-5 text-gray-900">
                     Association :
-                </h6>
+                </label>
                 <p class="text-sm text-gray-900">
                     Je suis pour le moment gardé par l'association
                     <a [routerLink]="'association/'+chat.association.id">{{ chat.association.nom }}</a>
@@ -169,12 +191,12 @@
 
     <!-- New description block -->
     <div class="max-w-screen-lg mt-8 md:mx-auto lg:max-w-screen-lg md:mt-12">
-        <h3 class="mb-4 text-xl font-semibold leading-6">Description :</h3>
+        <label class="mb-2 block text-sm font-medium leading-5 text-gray-900">Description :</label>
         <p *ngIf="!isEditMode" class="text-base text-gray-700" [innerHTML]="sanitizeHtml(chat.description)">
         </p>
 
         <editor *ngIf="isEditMode" modelEvents="change input undo redo setcontent closewindow"
-            (ngModelChange)="updateChat()" ignoreEvents="onMouseEnter,onMouseLeave,onMouseOut,onMouseMove"
+            ignoreEvents="onMouseEnter,onMouseLeave,onMouseOut,onMouseMove"
             [(ngModel)]="chat.description" [init]="{
       
       base_url: '/tinymce',
@@ -203,7 +225,13 @@
             {{ chat.vaccinations }}
         </p>
     </div>
-    <button
+
+    <button (click)="updateChat()" *ngIf="isEditMode"
+        class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+        Sauvegarder
+    </button>
+
+    <button *ngIf="!isEditMode"
         class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
         Contacter {{chat.nom }}
     </button>
