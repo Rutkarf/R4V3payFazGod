@@ -29,7 +29,8 @@
                 <img [src]="chat.photos[0].url" class="object-cover w-full h-56 md:h-auto rounded shadow-lg" alt="" />
                 <div *ngIf="isEditMode" class="absolute right-0 bottom-0 mb-2 mr-2 space-x-2">
                     <button
-                        class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 focus:outline-none">Changer
+                        class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 focus:outline-none">
+                        Changer
                         <fa-icon [icon]="faUpload" aria-label="Upload" title="Upload" class="ml-1"></fa-icon>
                     </button>
                     <button
@@ -43,13 +44,24 @@
                 <img [src]="photo.url" class="object-cover w-full h-48 rounded shadow-lg" alt="" />
                 <div *ngIf="isEditMode" class="absolute right-0 bottom-0 mb-2 mr-2 space-x-2">
                     <button
-                        class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 focus:outline-none">Changer</button>
+                        class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 focus:outline-none">
+                        Changer
+                    </button>
                     <button
                         class="text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1.5 focus:outline-none">
                         Supprimer
                         <fa-icon [icon]="faTrash" aria-label="Sexe" title="Male" class="ml-1"></fa-icon>
                     </button>
                 </div>
+            </div>
+        
+            <!-- Bouton Rajouter des images -->
+            <div class="col-span-1 md:col-span-2">
+                <button
+                    class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none w-full md:w-auto">
+                    Rajouter des images
+                    <fa-icon [icon]="faUpload" aria-label="Rajouter" title="Rajouter" class="ml-1"></fa-icon>
+                </button>
             </div>
         </div>
         
