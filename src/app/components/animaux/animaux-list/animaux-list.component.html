@@ -22,7 +22,7 @@
                                 aria-label="Association" title="L'association">{{chat.association.nom}}</a>
                             <span class="text-gray-600"> - {{formatDate(chat.createdAt)}}</span>
                         </p>
-                        <fa-icon [icon]="chat.favoris.length > 0 ? faHeart : fasHeart" aria-label="Favori"
+                        <fa-icon *ngIf="auth.isAuthenticated$ | async" [icon]="chat.favoris.length > 0 ? faHeart : fasHeart" aria-label="Favori"
                             title="Favori" class="mr-2 fa-xl"
                             [ngClass]="{'text-red-500': chat.favoris.length > 0, 'cursor-pointer': true}"
                             (click)="toggleFavori(chat)"></fa-icon>
