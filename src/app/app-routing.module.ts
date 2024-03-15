@@ -14,6 +14,7 @@ import { AProposComponent } from './components/a-propos/a-propos.component';
 import { CguComponent } from './components/cgu/cgu.component';
 import { ErreurComponent } from './components/erreur/erreur.component';
 import { AuthGuard } from '@auth0/auth0-angular';
+import { TchatComponent } from './components/tchat/tchat.component';
 
 const routes: Routes = [
   {
@@ -64,6 +65,10 @@ const routes: Routes = [
   {
     path: 'mentions-legales',
     component: CguComponent,
+  },
+  {
+    path: 'tchat',
+    component: TchatComponent,
   },
   {
     path: '**',

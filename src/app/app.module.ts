@@ -18,6 +18,8 @@ import { AnimauxDetailsComponent } from './components/animaux/animaux-details/an
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { NoHeaderFooterDirective } from './no-header-footer.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
@@ -34,6 +36,9 @@ import { AProposComponent } from './components/a-propos/a-propos.component';
 import { CguComponent } from './components/cgu/cgu.component';
 import { ToastrModule } from 'ngx-toastr';
 import { LoaderComponent } from './components/loader/loader.component';
+import { TchatComponent } from './components/tchat/tchat.component';
+import { TchatIconComponent } from './components/tchat/tchat-icon/tchat-icon.component';
+import { TchatMessageComponent } from './components/tchat/tchat-message/tchat-message.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +59,9 @@ import { LoaderComponent } from './components/loader/loader.component';
     AProposComponent,
     CguComponent,
     LoaderComponent,
+    TchatComponent,
+    TchatIconComponent,
+    TchatMessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +71,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatTabsModule,
+    MatToolbarModule,
+    MatSidenavModule,
     FontAwesomeModule,
     // Auth0 configuration
     AuthModule.forRoot({
