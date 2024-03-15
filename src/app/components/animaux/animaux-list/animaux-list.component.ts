@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { faMars, faVenus, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as fasHeart } from '@fortawesome/free-regular-svg-icons';
 
 import { AppService } from '../../../services/app.service';
 import { Chat, Sexe, Favori } from '../../../interfaces/interfaces';
-import { DatePipe } from '@angular/common';
+import { DOCUMENT, DatePipe } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-animaux-list',
@@ -27,7 +28,9 @@ export class AnimauxListComponent {
     private appService: AppService,
     private datePipe: DatePipe,
     private sanitizer: DomSanitizer,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    public auth: AuthService,
+    @Inject(DOCUMENT) private doc: Document
   ) {}
 
   chats: Chat[] = [];
@@ -49,6 +52,7 @@ export class AnimauxListComponent {
 
       this.appService.removeFavori(favoriToRemove.id!).subscribe((favori) => {
         console.log('Favori retiré:', favori);
+        this.toastr.info('Chat retiré des favoris', 'Favori');
       });
     } else {
       // Sinon, ajoute-le aux favoris
@@ -56,11 +60,9 @@ export class AnimauxListComponent {
         chatId: chat.id,
         utilisateurId: utilisateurId,
       };
-
       chat.favoris.push(newFavori);
-
       this.appService.createFavori(newFavori).subscribe((favori) => {
-        console.log('Favori ajouté:', favori);
+        this.toastr.info('Chat ajouté aux favoris', 'Favori');
       });
     }
   }
