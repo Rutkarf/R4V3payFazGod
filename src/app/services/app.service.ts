@@ -66,4 +66,21 @@ export class AppService {
       take(1)
     );
   }
+
+  getAllConversationByUser(id: number): Observable<any> {
+    return this.http.get(this.api + '/conversations').pipe(
+      map((res: any) => res),
+      share(),
+      take(1)
+    );
+  }
+
+  getConversationById(id: number): Observable<any> {
+    return this.http.get(this.api + '/conversations/' + id).pipe(
+      map((res: any) => res),
+      share(),
+      take(1)
+    );
+  }
+
 }
