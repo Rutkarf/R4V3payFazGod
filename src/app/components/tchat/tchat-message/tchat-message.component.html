@@ -1,0 +1,47 @@
+<!-- Main Chat Area -->
+<div *ngIf="auth.user$ | async as user">
+    <!-- Chat Header -->
+    <header class="bg-white p-4 text-gray-700 dark:border-t dark:border-orange-900 dark:bg-gray-800 dark:text-white">
+        <h1 class="text-2xl font-semibold">{{user.name}}</h1>
+    </header>
+
+    <!-- Chat Messages -->
+    <div class="h-screen overflow-y-auto p-4 pb-36 bg-gray-100 dark:bg-gray-700">
+        <div *ngFor="let message of messages">
+            <!-- Message entrant -->
+            <div *ngIf="message.type === 'incoming'" class="flex mb-4 cursor-pointer">
+              <div class="w-9 h-9 rounded-full flex items-center justify-center mr-2">
+                <img alt="..." src="../../../../assets/happy-cat.jpg" class="w-8 h-8 rounded-full">
+              </div>
+              <div class="flex max-w-96 bg-white rounded-lg p-3 gap-3">
+                <p class="text-gray-700">{{ message.content }}</p>
+              </div>
+            </div>
+            
+            <!-- Message sortant -->
+            <div *ngIf="message.type === 'outgoing'" class="flex justify-end mb-4 cursor-pointer">
+              <div class="flex max-w-96 bg-orange-600 text-white rounded-lg p-3 gap-3">
+                <p>{{ message.content }}</p>
+              </div>
+              <div class="w-9 h-9 rounded-full flex items-center justify-center ml-2">
+                <img alt="..." [src]='user.picture' loading="lazy" decoding="async" referrerpolicy="no-referrer"
+                    class="w-8 h-8 rounded-full">
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <!-- Chat Input -->
+    <footer class="bg-white p-4 absolute bottom-0 w-3/4 dark:bg-gray-800">
+        <div class="flex items-center">
+            <!-- Utilisez ngModel ici pour lier le champ de saisie au modèle -->
+            <input type="text" [(ngModel)]="newMessage" (keydown.enter)="sendMessage()" placeholder="Tapez un message..."
+                class="w-full p-2 rounded-md border border-gray-400 focus:outline-none focus:border-blue-500">
+            <button (click)="sendMessage()" class="bg-orange-600 text-white px-4 py-1 rounded-md ml-2 hover:bg-orange-700">
+                <span class="material-symbols-outlined">
+                    send
+                </span>
+            </button>
+        </div>
+    </footer>
+</div>
