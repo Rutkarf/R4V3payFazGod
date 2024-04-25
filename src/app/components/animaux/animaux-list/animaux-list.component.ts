@@ -8,6 +8,7 @@ import { DOCUMENT, DatePipe } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '@auth0/auth0-angular';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-animaux-list',
@@ -35,6 +36,8 @@ export class AnimauxListComponent {
 
   chats: Chat[] = [];
   isFav = false;
+  private subscriptions = new Subscription();
+
 
   ngOnInit() {
     this.getCats();
@@ -68,25 +71,24 @@ export class AnimauxListComponent {
   }
 
   getCats() {
-    this.appService.getAllCats().subscribe(
-      (chats) => {
+    const catSubscription = this.appService.getAllCats().subscribe({
+      next: (chats) => {
         this.chats = chats;
-        console.log(
-          '🚀 ~ AnimauxListComponent ~ this.appService.getAllCats ~ this.chats:',
-          this.chats
-        );
-      },
-      (error) => {
-        console.error('Erreur lors de la récupération des chats', error);
-        this.toastr.error('Erreur lors de la récupération des chats', 'Erreur');
-
-        // Handle the error here
-      },
-      () => {
-        console.log('Fetching cats complete');
         this.isLoaded = true;
-      }
-    );
+      },
+      error: (error) => {
+        const errorText = 'Erreur lors de la récupération des chats';
+        console.error(errorText, error);
+        this.toastr.error(errorText, 'Erreur');
+      },
+      complete: () => console.log('Completion handler')
+    });
+
+    this.subscriptions.add(catSubscription);
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
   }
 
   sanitizeHtml(html: string): SafeHtml {
