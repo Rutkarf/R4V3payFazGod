@@ -25,9 +25,9 @@ export class UserService {
         if (this.isAdmin) {
           this.isAsso = true;
         } else {
-            this.isAsso = this.isRole(roles, UserRole.Assso);
+            this.isAsso = this.isRole(roles, UserRole.Asso);
         }
-        this.isAsso = this.isRole(roles, UserRole.Assso);
+        this.isAsso = this.isRole(roles, UserRole.Asso);
         this.isUser = true;
       }
     });

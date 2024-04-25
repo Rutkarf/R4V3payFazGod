@@ -116,5 +116,5 @@ export interface AppErrorModel {
 export enum UserRole {
   User = 'User',
   Admin = 'Admin',
-  Assso = 'Assso'
+  Asso = 'Asso'
 }
