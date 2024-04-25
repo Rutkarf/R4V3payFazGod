@@ -40,6 +40,9 @@ import { TchatComponent } from './components/tchat/tchat.component';
 import { TchatIconComponent } from './components/tchat/tchat-icon/tchat-icon.component';
 import { TchatMessageComponent } from './components/tchat/tchat-message/tchat-message.component';
 
+import { FileUploadModule } from 'primeng/fileupload';
+import { ToastModule } from 'primeng/toast';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +77,8 @@ import { TchatMessageComponent } from './components/tchat/tchat-message/tchat-me
     MatToolbarModule,
     MatSidenavModule,
     FontAwesomeModule,
+    FileUploadModule,
+    ToastModule,
     // Auth0 configuration
     AuthModule.forRoot({
       ...environment.auth,
