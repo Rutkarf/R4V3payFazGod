@@ -112,3 +112,9 @@ export interface ApiResponseModel {
 export interface AppErrorModel {
   message: string;
 }
+
+export enum UserRole {
+  User = 'User',
+  Admin = 'Admin',
+  Assso = 'Assso'
+}

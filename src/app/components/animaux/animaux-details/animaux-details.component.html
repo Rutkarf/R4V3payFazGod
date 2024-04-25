@@ -5,7 +5,7 @@
                 Catégorie : Chat
             </p>
         </div>
-        <button *ngIf="auth.isAuthenticated$ | async" (click)="toggleEditMode()" class="focus:outline-none bg-white text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">
+        <button *ngIf="userService.isAdmin" (click)="toggleEditMode()" class="focus:outline-none bg-white text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">
             Édition
         </button>
 
