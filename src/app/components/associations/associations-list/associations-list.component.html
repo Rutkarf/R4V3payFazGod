@@ -1,8 +1,9 @@
-<p>associations-list works!</p>
+<!-- <p>associations-list works!</p> -->
 
-<!-- <div class="card flex justify-content-center">
+
+<div class="card flex justify-content-center">
     <p-toast></p-toast>
-    <p-fileUpload name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" (onUpload)="onUpload($event)" [multiple]="true" accept="image/*" maxFileSize="1000000">
+    <p-fileUpload name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" (onUpload)="onUpload($event)" [multiple]="true" accept="image/*" [maxFileSize]="1000000">
         <ng-template pTemplate="content">
             <ul *ngIf="uploadedFiles.length">
                 <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
@@ -10,4 +11,4 @@
         </ng-template>
     </p-fileUpload>
 </div>
- -->
+
