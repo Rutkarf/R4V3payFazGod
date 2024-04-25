@@ -57,12 +57,8 @@ export class TchatMessageComponent {
 
   getMessages(): void {
     this.appService.getAllConversationByUser(1).subscribe((convs) => {
-      console.log('🚀 ~ TchatMessageComponent ~ this.appService.getConversations ~ convs:', convs);
+      console.log(' convs:', convs);
     });
-
-    // this.appService.getConversationById(1).subscribe((conv) => {
-    //   console.log('🚀 ~ TchatMessageComponent ~ this.appService.getConversations ~ conv:', conv);
-    // });
   }
 
   private listenForMessages(): void {

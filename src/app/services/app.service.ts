@@ -27,7 +27,6 @@ export class AppService {
   }
 
   getAllCats(): Observable<Chat[]> {
-    console.log('🚀 ~ AppService ~ getAllCats ~ this.api ICI :', this.api);
     return this.http.get(this.api + '/chats').pipe(
       map((res: any) => res),
       share(),
