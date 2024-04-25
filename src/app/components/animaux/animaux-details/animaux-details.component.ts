@@ -1,12 +1,13 @@
 import { DOCUMENT, DatePipe } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { Chat, Sexe } from '../../../interfaces/interfaces';
-import { AppService } from 'src/app/services/app.service';
+import { AppService } from '../../../services/app.service';
 import { ActivatedRoute } from '@angular/router';
 import { faMars, faTrash, faUpload, faVenus } from '@fortawesome/free-solid-svg-icons';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '@auth0/auth0-angular';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-animaux-details',
@@ -29,7 +30,8 @@ export class AnimauxDetailsComponent {
     private sanitizer: DomSanitizer,
     private toastr: ToastrService,
     public auth: AuthService,
-    @Inject(DOCUMENT) private doc: Document
+    @Inject(DOCUMENT) private doc: Document,
+    public userService: UserService,
   ) {}
 
   ngOnInit() {
