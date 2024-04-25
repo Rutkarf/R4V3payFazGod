@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-inscription',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./inscription.component.scss']
 })
 export class InscriptionComponent {
+  constructor (
+    public auth: AuthService,
+  ){}
+  
+  loginWithRedirect() {
+    this.auth.loginWithRedirect();
+  }
 
 }
