@@ -89,6 +89,14 @@ import { ToastModule } from 'primeng/toast';
         allowedList: [
           // Tous les post, put, delete et patch sont protégés par le token
           {
+            uri: `${environment.urlAPI}/favoris`,
+            httpMethod: HttpMethod.Get,
+          },
+          {
+            uri: `${environment.urlAPI}/chats/favoris`,
+            httpMethod: HttpMethod.Get,
+          },
+          {
             uri: `${environment.urlAPI}/*`,
             httpMethod: HttpMethod.Post,
           },
