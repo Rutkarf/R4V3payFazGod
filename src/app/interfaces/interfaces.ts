@@ -82,7 +82,7 @@ export interface Favori {
   id?: number;
   createdAt?: string;
   chatId: number;
-  utilisateurId: number;
+  utilisateurId?: number;
   chat?: Chat;
   utilisateur?: Utilisateur;
 }
