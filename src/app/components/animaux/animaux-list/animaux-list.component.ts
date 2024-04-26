@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { faMars, faVenus, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as fasHeart } from '@fortawesome/free-regular-svg-icons';
 
@@ -17,6 +17,7 @@ import { Subscription } from 'rxjs';
   providers: [DatePipe],
 })
 export class AnimauxListComponent {
+  @Input() profileContext: boolean = false;
   isLoaded: boolean = false;
   faMars = faMars;
   faVenus = faVenus;
@@ -35,33 +36,32 @@ export class AnimauxListComponent {
   ) {}
 
   chats: Chat[] = [];
-  isFav = false;
+  favoris: Favori[] = [];
   private subscriptions = new Subscription();
 
 
   ngOnInit() {
-    this.getCats();
+    if (this.profileContext) {
+      this.getCatByFavoris();
+    } else {
+      this.getFavs();
+      this.getCats();
+    }
   }
 
   toggleFavori(chat: Chat) {
-    const isChatInFavoris = chat.favoris.length > 0;
-
-    if (isChatInFavoris) {
-      // Si le chat est déjà dans la liste des favoris, retire-le
-      const favoriToRemove = chat.favoris[0];
-      chat.favoris = [];
-
-      this.appService.removeFavori(favoriToRemove.id!).subscribe((favori) => {
-        console.log('Favori retiré:', favori);
+    if (chat.isFavori) {
+      // Si le chat est déjà un favori, retirez-le des favoris
+      this.appService.removeFavoriByCat(chat.id).subscribe(() => {
+        chat.isFavori = false;
+        console.log('Favori retiré');
         this.toastr.info('Chat retiré des favoris', 'Favori');
       });
     } else {
-      // Sinon, ajoute-le aux favoris
-      const newFavori: Favori = {
-        chatId: chat.id,
-      };
-      this.appService.createFavori(newFavori).subscribe((favori) => {
-        chat.favoris.push(favori);
+      // Sinon, ajoutez-le aux favoris
+      this.appService.createFavori({ chatId: chat.id }).subscribe(() => {
+        chat.isFavori = true;
+        console.log('Favori ajouté');
         this.toastr.info('Chat ajouté aux favoris', 'Favori');
       });
     }
@@ -83,6 +83,43 @@ export class AnimauxListComponent {
 
     this.subscriptions.add(catSubscription);
   }
+
+  getCatByFavoris() {
+    const favCatSubscription = this.appService.getCatByFavoris().subscribe({
+      next: (chats) => {
+        this.chats = chats;
+        this.isLoaded = true;
+        this.chats.forEach(chat => chat.isFavori = true);
+      },
+      error: (error) => {
+        const errorText = 'Erreur lors de la récupération des chats favoris';
+        console.error(errorText, error);
+        this.toastr.error(errorText, 'Erreur');
+      },
+      complete: () => console.log('Chats favoris chargés')
+    });
+  
+    this.subscriptions.add(favCatSubscription);
+  }
+
+  getFavs() {
+    const favSubscription = this.appService.getFavorisByUser().subscribe({
+      next: (favoriIds: number[]) => {
+        this.chats.forEach(chat => {
+          chat.isFavori = favoriIds.includes(chat.id);
+        });
+      },
+      error: (error) => {
+        const errorText = 'Erreur lors de la récupération des favoris';
+        console.error(errorText, error);
+        this.toastr.error(errorText, 'Erreur');
+      },
+      complete: () => console.log('Completion handler')
+    });
+    this.subscriptions.add(favSubscription);
+  }
+  
+  
 
   ngOnDestroy() {
     this.subscriptions.unsubscribe();

@@ -30,7 +30,7 @@ export interface Chat {
   favoris: Favori[];
   photos: Photo[];
   videos: Video[];
-  isFav: boolean;
+  isFavori?: boolean;
 }
 
 export interface Photo {

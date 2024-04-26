@@ -34,6 +34,14 @@ export class AppService {
     );
   }
 
+  getCatByFavoris(): Observable<Chat[]> {
+    return this.http.get(this.api + '/chats/favoris').pipe(
+      map((res: any) => res),
+      share(),
+      take(1)
+    );
+  }
+
   getByIdCat(id: number): Observable<Chat> {
     return this.http.get(this.api + '/chats/' + id).pipe(
       map((res: any) => res),
@@ -58,7 +66,15 @@ export class AppService {
     );
   }
 
-  removeFavori(id: number): Observable<Favori> {
+  getFavorisByUser(): Observable<number[]> {
+    return this.http.get(this.api + '/favoris').pipe(
+      map((res: any) => res),
+      share(),
+      take(1)
+    );
+  }
+
+  removeFavoriByCat(id: number): Observable<Favori> {
     return this.http.delete(this.api + '/favoris/' + id).pipe(
       map((res: any) => res),
       share(),
