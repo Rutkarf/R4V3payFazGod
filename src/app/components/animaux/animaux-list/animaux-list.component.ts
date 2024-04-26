@@ -44,8 +44,6 @@ export class AnimauxListComponent {
   }
 
   toggleFavori(chat: Chat) {
-    const utilisateurId = 1; // TODO CHANGER PAR L'ID DE L'UTILISATEUR CONNECTE
-
     const isChatInFavoris = chat.favoris.length > 0;
 
     if (isChatInFavoris) {
@@ -61,10 +59,9 @@ export class AnimauxListComponent {
       // Sinon, ajoute-le aux favoris
       const newFavori: Favori = {
         chatId: chat.id,
-        utilisateurId: utilisateurId,
       };
-      chat.favoris.push(newFavori);
       this.appService.createFavori(newFavori).subscribe((favori) => {
+        chat.favoris.push(favori);
         this.toastr.info('Chat ajouté aux favoris', 'Favori');
       });
     }
