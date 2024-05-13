@@ -13,11 +13,17 @@ export class HeaderComponent {
   isCollapsed = true;
   faUser = faUser;
   faPowerOff = faPowerOff;
+  public isMenuOpen: boolean = false;
 
   constructor(
     public auth: AuthService,
     @Inject(DOCUMENT) private doc: Document
   ) {}
+
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 
   envProd = environment.production;
 
