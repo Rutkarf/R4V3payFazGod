@@ -87,6 +87,12 @@ import { ToastModule } from 'primeng/toast';
       ...environment.auth,
       httpInterceptor: {
         allowedList: [
+          // Exclure l'endpoint d'envoi d'email de l'authentification
+          {
+            uri: `${environment.urlAPI}/contact`,
+            httpMethod: HttpMethod.Post,
+            allowAnonymous: true,
+          },
           // Tous les post, put, delete et patch sont protégés par le token
           {
             uri: `${environment.urlAPI}/favoris`,

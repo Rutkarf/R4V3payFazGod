@@ -98,4 +98,11 @@ export class AppService {
     );
   }
 
+  sendEmail(data: any): Observable<any> {
+    return this.http.post(this.api + '/contact', data).pipe(
+      map((res: any) => res),
+      share(),
+      take(1)
+    );
+  }
 }
