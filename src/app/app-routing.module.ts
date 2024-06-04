@@ -71,6 +71,10 @@ const routes: Routes = [
     component: TchatComponent,
   },
   {
+    path : 'callback',
+    component : HomeComponent
+  },
+  {
     path: '**',
     redirectTo: 'erreur',
   },
