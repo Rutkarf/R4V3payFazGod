@@ -8,7 +8,7 @@ import { DOCUMENT, DatePipe } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '@auth0/auth0-angular';
-import { Subscription } from 'rxjs';
+import { Subscription, firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-animaux-list',
@@ -25,6 +25,7 @@ export class AnimauxListComponent {
 
   sexe = Sexe;
   fasHeart = fasHeart;
+  isAuthenticated: boolean = false;
 
   constructor(
     private appService: AppService,
@@ -38,18 +39,25 @@ export class AnimauxListComponent {
   chats: Chat[] = [];
   favoris: Favori[] = [];
   private subscriptions = new Subscription();
-
-
-  ngOnInit() {
-    if (this.profileContext) {
+  
+  async ngOnInit() {
+    this.isAuthenticated = await firstValueFrom(this.auth.isAuthenticated$);
+    if (this.profileContext && this.isAuthenticated) {
       this.getCatByFavoris();
     } else {
-      this.getFavs();
       this.getCats();
+      if (this.isAuthenticated) {
+        this.getFavs();
+      }
     }
   }
-
+  
   toggleFavori(chat: Chat) {
+    if (!this.isAuthenticated) {
+      this.toastr.warning('Vous devez être connecté pour ajouter un chat aux favoris', 'Connexion requise');
+      return;
+    }
+
     if (chat.isFavori) {
       // Si le chat est déjà un favori, retirez-le des favoris
       this.appService.removeFavoriByCat(chat.id).subscribe(() => {
@@ -118,8 +126,6 @@ export class AnimauxListComponent {
     });
     this.subscriptions.add(favSubscription);
   }
-  
-  
 
   ngOnDestroy() {
     this.subscriptions.unsubscribe();
