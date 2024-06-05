@@ -44,6 +44,8 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { AccordionModule } from 'primeng/accordion';
 
 import { ToastModule } from 'primeng/toast';
+import { BugComponent } from './components/bug/bug.component';
+
 
 @NgModule({
   declarations: [
@@ -67,6 +69,7 @@ import { ToastModule } from 'primeng/toast';
     TchatComponent,
     TchatIconComponent,
     TchatMessageComponent,
+    BugComponent,
   ],
   imports: [
     BrowserModule,

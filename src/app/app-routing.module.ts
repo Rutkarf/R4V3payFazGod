@@ -15,6 +15,7 @@ import { CguComponent } from './components/cgu/cgu.component';
 import { ErreurComponent } from './components/erreur/erreur.component';
 import { AuthGuard } from '@auth0/auth0-angular';
 import { TchatComponent } from './components/tchat/tchat.component';
+import { BugComponent } from './components/bug/bug.component';
 
 const routes: Routes = [
   {
@@ -73,6 +74,10 @@ const routes: Routes = [
   {
     path : 'callback',
     component : HomeComponent
+  },
+  {
+    path: 'bug',
+    component: BugComponent
   },
   {
     path: '**',
