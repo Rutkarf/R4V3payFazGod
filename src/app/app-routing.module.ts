@@ -15,6 +15,7 @@ import { CguComponent } from './components/cgu/cgu.component';
 import { ErreurComponent } from './components/erreur/erreur.component';
 import { AuthGuard } from '@auth0/auth0-angular';
 import { TchatComponent } from './components/tchat/tchat.component';
+import { AssociationsDetailsComponent } from './components/associations/associations-details/associations-details.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,10 @@ const routes: Routes = [
     path: 'dons',
     component: DonsComponent,
     data: { state: 'dons' },
+  },
+  {
+    path: 'associations/:id',
+    component: AssociationsDetailsComponent,
   },
   {
     path: 'associations',

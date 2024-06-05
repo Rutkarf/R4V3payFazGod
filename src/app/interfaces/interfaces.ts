@@ -37,8 +37,10 @@ export interface Photo {
   id: number;
   createdAt: string;
   url: string;
-  chatId: number;
-  chat: Chat;
+  chatId?: number;
+  chat?: Chat;
+  associationId?: number;
+  association?: Association;
 }
 
 export interface Video {
@@ -69,13 +71,13 @@ export interface Utilisateur {
 export interface Association {
   id: number;
   nom: string;
-  url?: string;
+  url: string;
   ville: string;
-  urlImage?: string;
   description?: string;
   tel?: string;
   chats: Chat[];
   utilisateurs: Utilisateur[];
+  photos: Photo[];
 }
 
 export interface Favori {

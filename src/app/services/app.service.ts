@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, share, take } from 'rxjs';
-import { Chat, Favori } from '../interfaces/interfaces';
+import { Association, Chat, Favori } from '../interfaces/interfaces';
 import { environment } from 'src/environments/environment';
 import { DOCUMENT } from '@angular/common';
 
@@ -52,6 +52,30 @@ export class AppService {
 
   updateChat(chat: Chat): Observable<Chat> {
     return this.http.put(this.api + '/chats/' + chat.id, chat).pipe(
+      map((res: any) => res),
+      share(),
+      take(1)
+    );
+  }
+
+  getAllAsso(): Observable<Association[]> {
+    return this.http.get(this.api + '/associations').pipe(
+      map((res: any) => res),
+      share(),
+      take(1)
+    );
+  }
+
+  getByIdAsso(id: number): Observable<Association> {
+    return this.http.get(this.api + '/associations/' + id).pipe(
+      map((res: any) => res),
+      share(),
+      take(1)
+    );
+  }
+
+  updateAsso(asso: Association): Observable<Association> {
+    return this.http.put(this.api + '/associations/' + asso.id, asso).pipe(
       map((res: any) => res),
       share(),
       take(1)
