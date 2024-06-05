@@ -76,6 +76,7 @@ export interface Association {
   tel?: string;
   chats: Chat[];
   utilisateurs: Utilisateur[];
+  Photos: Photo[];
 }
 
 export interface Favori {
