@@ -2,8 +2,8 @@
 
 <div *ngIf="isLoaded && associations && associations.length > 0" class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
   <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    <li *ngFor="let association of associations" class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow">
-      <div class="flex w-full items-center justify-between space-x-6 p-6">
+    <li *ngFor="let association of associations" class="group col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow overflow-hidden transition-shadow shadow-xl duration-300 bg-white rounded shadow-sm block scale-100 transform opacity-100 transition duration-300 scale-100 transform transition duration-300 hover:scale-105">
+      <div class="flex w-full items-center justify-between space-x-6 p-6 cursor-pointer" [routerLink]="['/associations', association.id]">
         <div class="flex-1">
           <div class="flex items-center space-x-3">
             <a [routerLink]="['/associations', association.id]">
