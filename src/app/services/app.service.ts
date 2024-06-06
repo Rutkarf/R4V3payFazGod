@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, share, take } from 'rxjs';
-import { Association, Chat, Favori } from '../interfaces/interfaces';
+import { Chat, Favori, Association } from '../interfaces/interfaces';
 import { environment } from 'src/environments/environment';
 import { DOCUMENT } from '@angular/common';
 
@@ -28,6 +28,14 @@ export class AppService {
 
   getAllCats(): Observable<Chat[]> {
     return this.http.get(this.api + '/chats').pipe(
+      map((res: any) => res),
+      share(),
+      take(1)
+    );
+  }
+
+  getAllAssociations(): Observable<Association[]> {
+    return this.http.get(this.api + '/associations').pipe(
       map((res: any) => res),
       share(),
       take(1)

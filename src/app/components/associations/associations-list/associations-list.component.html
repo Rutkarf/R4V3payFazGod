@@ -1,14 +1,29 @@
-<p>associations-list works!</p>
+<app-loader *ngIf="!isLoaded"></app-loader>
 
-
-<!-- <div class="card flex justify-content-center">
-    <p-toast></p-toast>
-    <p-fileUpload name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" (onUpload)="onUpload($event)" [multiple]="true" accept="image/*" [maxFileSize]="1000000">
-        <ng-template pTemplate="content">
-            <ul *ngIf="uploadedFiles.length">
-                <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
-            </ul>
-        </ng-template>
-    </p-fileUpload>
-</div> -->
-
+<div *ngIf="isLoaded && associations && associations.length > 0" class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+  <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <li *ngFor="let association of associations" class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow">
+      <div class="flex w-full items-center justify-between space-x-6 p-6">
+        <div class="flex-1">
+          <div class="flex items-center space-x-3">
+            <a [routerLink]="['/associations', association.id]">
+              <h3 class="truncate text-sm font-medium text-gray-900">{{ association.nom }}</h3>
+            </a>
+          </div>
+          <p class="mt-1 text-sm text-gray-500">
+            {{ association.shortDescription }}
+          </p>
+        </div>
+        <img class="h-20 w-20 flex-shrink-0 rounded-full bg-gray-300" [src]="association.photos[0].url" alt="{{ association.nom }}">
+      </div>
+      <div>
+        <div class="flex justify-center border-gray-200">
+          <div class="relative inline-flex items-center gap-x-3 py-4 text-sm font-semibold text-gray-900">
+            <fa-icon [icon]="faLocationDot" aria-label="Favori" title="Favori" class="mr-2 fa-xl"></fa-icon>
+            {{ association.ville }}
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
