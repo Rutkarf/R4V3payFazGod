@@ -204,7 +204,7 @@
                 </label>
                 <p class="text-sm text-gray-900">
                     Je suis pour le moment gardé par l'association
-                    <a [routerLink]="'association/'+chat.association.id">{{ chat.association.nom }}</a>
+                    <a class="text-orange-600 hover:text-orange-800" [routerLink]="'/associations/'+chat.association.id">{{ chat.association.nom }}</a>
                 </p>
             </div>
         </div>
