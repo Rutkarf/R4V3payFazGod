@@ -38,6 +38,7 @@ export class AssociationsListComponent {
     const associationSubscription = this.appService.getAllAssociations().subscribe({
       next: (associations) => {
         this.associations = associations;
+        console.log('🚀 ~ AssociationsListComponent ~ associationSubscription ~ this.associations:', this.associations);
         this.isLoaded = true;
       },
       error: (error) => {

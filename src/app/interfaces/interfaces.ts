@@ -74,6 +74,7 @@ export interface Association {
   url: string;
   ville: string;
   description?: string;
+  shortDescription?: string;
   tel?: string;
   chats: Chat[];
   utilisateurs: Utilisateur[];
