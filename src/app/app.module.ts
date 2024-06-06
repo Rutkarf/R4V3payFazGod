@@ -42,10 +42,11 @@ import { TchatMessageComponent } from './components/tchat/tchat-message/tchat-me
 
 import { FileUploadModule } from 'primeng/fileupload';
 import { AccordionModule } from 'primeng/accordion';
-
 import { ToastModule } from 'primeng/toast';
 import { BugComponent } from './components/bug/bug.component';
 
+
+import { AssociationsDetailsComponent } from './components/associations/associations-details/associations-details.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { BugComponent } from './components/bug/bug.component';
     TchatComponent,
     TchatIconComponent,
     TchatMessageComponent,
+    AssociationsDetailsComponent,
     BugComponent,
   ],
   imports: [

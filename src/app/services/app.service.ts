@@ -66,6 +66,30 @@ export class AppService {
     );
   }
 
+  getAllAsso(): Observable<Association[]> {
+    return this.http.get(this.api + '/associations').pipe(
+      map((res: any) => res),
+      share(),
+      take(1)
+    );
+  }
+
+  getByIdAsso(id: number): Observable<Association> {
+    return this.http.get(this.api + '/associations/' + id).pipe(
+      map((res: any) => res),
+      share(),
+      take(1)
+    );
+  }
+
+  updateAsso(asso: Association): Observable<Association> {
+    return this.http.put(this.api + '/associations/' + asso.id, asso).pipe(
+      map((res: any) => res),
+      share(),
+      take(1)
+    );
+  }
+
   createFavori(favori: Favori): Observable<Favori> {
     return this.http.post(this.api + '/favoris', favori).pipe(
       map((res: any) => res),
