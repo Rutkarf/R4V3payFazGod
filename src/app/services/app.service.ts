@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, map, share, take } from 'rxjs';
 import { Chat, Favori, Association } from '../interfaces/interfaces';
 import { environment } from 'src/environments/environment';
@@ -26,8 +26,18 @@ export class AppService {
     );
   }
 
-  getAllCats(): Observable<Chat[]> {
-    return this.http.get(this.api + '/chats').pipe(
+  getAllCats(filters: any = {}): Observable<Chat[]> {
+    let params = new HttpParams();
+    if (filters.ville) {
+      params = params.append('ville', filters.ville);
+    }
+    if (filters.race) {
+      params = params.append('race', filters.race);
+    }
+    if (filters.association) {
+      params = params.append('associationId', filters.association);
+    }
+    return this.http.get(this.api + '/chats', { params }).pipe(
       map((res: any) => res),
       share(),
       take(1)
