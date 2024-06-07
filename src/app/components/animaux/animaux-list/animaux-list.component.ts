@@ -3,12 +3,14 @@ import { faMars, faVenus, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as fasHeart } from '@fortawesome/free-regular-svg-icons';
 
 import { AppService } from '../../../services/app.service';
-import { Chat, Sexe, Favori } from '../../../interfaces/interfaces';
+import { Chat, Sexe, Favori, PageEvent, Association } from '../../../interfaces/interfaces';
 import { DOCUMENT, DatePipe } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '@auth0/auth0-angular';
 import { Subscription, firstValueFrom } from 'rxjs';
+import { PaginatorState } from 'primeng/paginator';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-animaux-list',
@@ -26,20 +28,41 @@ export class AnimauxListComponent {
   sexe = Sexe;
   fasHeart = fasHeart;
   isAuthenticated: boolean = false;
+  chats: Chat[] = [];
+  favoris: Favori[] = [];
+  associations: Association[] = [];
+  private subscriptions = new Subscription();
+
+
+  // Pagination
+  totalRecords = 3;
+  rows = 10;
+  first = 0;
+  currentPage = 1;
+  selectedCity: string | null = null;
+  selectedCatBreed: string | null = null;
+  selectedAssociation: string | null = null;
+  form: FormGroup;
+
 
   constructor(
     private appService: AppService,
     private datePipe: DatePipe,
     private sanitizer: DomSanitizer,
     private toastr: ToastrService,
+    private fb: FormBuilder,
     public auth: AuthService,
     @Inject(DOCUMENT) private doc: Document
-  ) {}
+  ) {
+    this.form = this.fb.group({
+      ville: [''],
+      race: [''],
+      association: ['']
+    });
+  }
 
-  chats: Chat[] = [];
-  favoris: Favori[] = [];
-  private subscriptions = new Subscription();
   
+
   async ngOnInit() {
     this.isAuthenticated = await firstValueFrom(this.auth.isAuthenticated$);
     if (this.profileContext && this.isAuthenticated) {
@@ -50,6 +73,7 @@ export class AnimauxListComponent {
         this.getFavs();
       }
     }
+    this.getAllAssociation();
   }
   
   toggleFavori(chat: Chat) {
@@ -76,7 +100,14 @@ export class AnimauxListComponent {
   }
 
   getCats() {
-    const catSubscription = this.appService.getAllCats().subscribe({
+    const filters = {
+      ville: this.form.value.ville,
+      race: this.form.value.race,
+      association: this.form.value.association
+    };
+
+    console.log('🚀 ~ AnimauxListComponent ~ catSubscription ~ filters:', filters);
+    const catSubscription = this.appService.getAllCats(filters).subscribe({
       next: (chats) => {
         this.chats = chats;
         this.isLoaded = true;
@@ -90,6 +121,22 @@ export class AnimauxListComponent {
     });
 
     this.subscriptions.add(catSubscription);
+  }
+
+  getAllAssociation() {
+    const associationSubscription = this.appService.getAllAssociations().subscribe({
+      next: (associations) => {
+        this.associations = associations;
+        console.log('🚀 ~ AnimauxListComponent ~ associationSubscription ~ this.associations:', this.associations);
+      },
+      error: (error) => {
+        const errorText = 'Erreur lors de la récupération des associations';
+        console.error(errorText, error);
+        this.toastr.error(errorText, 'Erreur');
+      },
+      complete: () => console.log('Completion handler')
+    });
+    this.subscriptions.add(associationSubscription);
   }
 
   getCatByFavoris() {
@@ -140,4 +187,28 @@ export class AnimauxListComponent {
     const formattedDate = this.datePipe.transform(date, 'dd MMM yyyy');
     return formattedDate || ''; // return an empty string if the date is not valid
   }
+
+  onPageChange(event: PaginatorState) {
+    this.first = event.first ?? 0;
+    this.rows = event.rows ?? 10;
+    this.currentPage = Math.floor(this.first / this.rows) + 1;
+  }
+
+  onSearch() {
+    console.log('Search clicked');
+    console.log(this.form.value);
+    this.getCats();
+
+  }
+
+  onClear() {
+    console.log('Clear clicked');
+    this.form.reset({
+      ville: '',
+      race: '',
+      association: ''
+    });
+    this.getCats();
+  }
+
 }

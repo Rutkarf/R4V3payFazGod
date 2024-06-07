@@ -47,6 +47,9 @@ import { BugComponent } from './components/bug/bug.component';
 
 
 import { AssociationsDetailsComponent } from './components/associations/associations-details/associations-details.component';
+import { PaginationComponent } from './components/shared/pagination/pagination.component';
+import { PaginatorModule } from 'primeng/paginator';
+
 
 @NgModule({
   declarations: [
@@ -72,6 +75,7 @@ import { AssociationsDetailsComponent } from './components/associations/associat
     TchatMessageComponent,
     AssociationsDetailsComponent,
     BugComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,
@@ -130,6 +134,7 @@ import { AssociationsDetailsComponent } from './components/associations/associat
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
     }),
+    PaginatorModule,
   ],
   providers: [
     { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },

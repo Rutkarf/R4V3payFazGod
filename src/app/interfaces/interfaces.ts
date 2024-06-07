@@ -121,3 +121,12 @@ export enum UserRole {
   Admin = 'Admin',
   Asso = 'Asso'
 }
+
+
+// PrimeNG Paginator
+export interface PageEvent {
+  first: number;
+  rows: number;
+  page: number;
+  pageCount: number;
+}
