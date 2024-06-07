@@ -47,7 +47,6 @@ import { BugComponent } from './components/bug/bug.component';
 
 
 import { AssociationsDetailsComponent } from './components/associations/associations-details/associations-details.component';
-import { PaginationComponent } from './components/shared/pagination/pagination.component';
 import { PaginatorModule } from 'primeng/paginator';
 
 
@@ -75,7 +74,6 @@ import { PaginatorModule } from 'primeng/paginator';
     TchatMessageComponent,
     AssociationsDetailsComponent,
     BugComponent,
-    PaginationComponent,
   ],
   imports: [
     BrowserModule,
