@@ -29,14 +29,18 @@ jobs:
 
       - name: Extract Preview URL
         id: extract_url
-        run: echo "::set-output name=preview-url::$(vercel --token=${{ secrets.VERCEL_TOKEN }} ls --target=preview | grep -o 'https://[^ ]*')"
-
+        run: |
+          preview_url=$(vercel --token=${{ secrets.VERCEL_TOKEN }} ls --target=preview | grep -o 'https://[^ ]*')
+          echo "Preview URL: $preview_url"
+          echo "::set-output name=preview-url::$preview_url"
+        
       - name: Lighthouse Check
         id: lighthouseCheck
         uses: foo-software/lighthouse-check-action@master
         with:
           fooApiToken: ${{ secrets.LIGHTHOUSE_CHECK_API_TOKEN }}
           urlsJson: '[["${{ secrets.LIGHTHOUSE_CHECK_API_TOKEN }}", "${{ steps.extract_url.outputs.preview-url }}"]]'
+          extraHeaders: '{ "x-vercel-protection-bypass": "${{ secrets.VERCEL_PROTECTION_BYPASS }}" }'
           prCommentEnabled: true
           gitAuthor: ${{ github.actor }}
           gitBranch: ${{ github.ref }}
