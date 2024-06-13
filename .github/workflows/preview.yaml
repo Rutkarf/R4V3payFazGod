@@ -25,7 +25,9 @@ jobs:
         
       - name: Deploy Project Artifacts to Vercel
         id: vercel_deploy
-        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+        run: |
+          DEPLOY_URL=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }} --confirm)
+          echo "preview-url=${DEPLOY_URL}" >> $GITHUB_ENV
         continue-on-error: true
         
       - name: Lighthouse Check
@@ -33,7 +35,7 @@ jobs:
         uses: foo-software/lighthouse-check-action@master
         with:
           fooApiToken: ${{ secrets.LIGHTHOUSE_CHECK_API_TOKEN }}
-          urlsJson: '[["fooPageToken", "${{ steps.vercel_deploy.outputs.preview-url }}"]]'
+          urlsJson: '[["fooPageToken", "${{ env.preview-url }}"]]'
           extraHeaders: '{ "x-vercel-protection-bypass": "${{ secrets.VERCEL_PROTECTION_BYPASS }}" }'
           prCommentEnabled: true
           gitAuthor: ${{ github.actor }}
