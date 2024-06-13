@@ -30,7 +30,7 @@ jobs:
         id: lighthouseCheck
         uses: foo-software/lighthouse-check-action@master
         with:
-          urls: ${{ steps.vercel_deploy.outputs.preview-url }}
+          urls: "[${{ steps.extract_url.outputs.preview-url }}]"
           prCommentEnabled: true
           gitAuthor: ${{ github.actor }}
           gitBranch: ${{ github.ref }}
