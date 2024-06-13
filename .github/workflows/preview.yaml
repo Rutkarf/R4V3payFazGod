@@ -27,21 +27,13 @@ jobs:
         id: vercel_deploy
         run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
         continue-on-error: true
-
-      - name: Extract Preview URL
-        id: extract_url
-        run: |
-          deployment_id=$(vercel --token=${{ secrets.VERCEL_TOKEN }} ls --json | jq -r '.[0].uid')
-          preview_url=$(vercel inspect $deployment_id --token=${{ secrets.VERCEL_TOKEN }} --json | jq -r '.url')
-          echo "Preview URL: $preview_url"
-          echo "::set-output name=preview-url::$preview_url"
         
       - name: Lighthouse Check
         id: lighthouseCheck
         uses: foo-software/lighthouse-check-action@master
         with:
           fooApiToken: ${{ secrets.LIGHTHOUSE_CHECK_API_TOKEN }}
-          urlsJson: '[["${{ secrets.LIGHTHOUSE_CHECK_API_TOKEN }}", "${{ steps.extract_url.outputs.preview-url }}"]]'
+          urlsJson: '[["fooPageToken", "${{ steps.now.outputs.preview-url }}"]]'
           extraHeaders: '{ "x-vercel-protection-bypass": "${{ secrets.VERCEL_PROTECTION_BYPASS }}" }'
           prCommentEnabled: true
           gitAuthor: ${{ github.actor }}
