@@ -35,7 +35,7 @@ jobs:
         uses: foo-software/lighthouse-check-action@master
         with:
           fooApiToken: ${{ secrets.LIGHTHOUSE_CHECK_API_TOKEN }}
-          urlsJson: '[["fooPageToken", "${{ env.preview-url }}"]]'
+          urlsJson: '[["997078d5-d312-4adc-bf20-c8b526eafb4c", "${{ env.preview-url }}"]]'
           extraHeaders: '{ "x-vercel-protection-bypass": "${{ secrets.VERCEL_PROTECTION_BYPASS }}" }'
           prCommentEnabled: true
           gitAuthor: ${{ github.actor }}
