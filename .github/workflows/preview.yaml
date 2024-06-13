@@ -3,6 +3,7 @@ name: Vercel Preview Deployment and Lighthouse Check
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  VERCEL_PROTECTION_BYPASS: ${{ secrets.VERCEL_PROTECTION_BYPASS }}
 
 on:
   push
@@ -30,7 +31,8 @@ jobs:
       - name: Extract Preview URL
         id: extract_url
         run: |
-          preview_url=$(vercel --token=${{ secrets.VERCEL_TOKEN }} ls --target=preview | grep -o 'https://[^ ]*')
+          deployment_id=$(vercel --token=${{ secrets.VERCEL_TOKEN }} ls --json | jq -r '.[0].uid')
+          preview_url=$(vercel inspect $deployment_id --token=${{ secrets.VERCEL_TOKEN }} --json | jq -r '.url')
           echo "Preview URL: $preview_url"
           echo "::set-output name=preview-url::$preview_url"
         
