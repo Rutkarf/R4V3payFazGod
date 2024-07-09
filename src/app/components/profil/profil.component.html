@@ -22,3 +22,46 @@
     {{ isEditMode ? 'Enregistrer' : 'Editer' }}
   </button>
 </div>
+
+ <!-- Section Relevé d'Identité Bancaire -->
+ <div class="bank-info">
+  <h3>Relevé d'Identité Bancaire</h3>
+  <div class="bank-info-item">
+    <label for="beneficiaire">Bénéficiaire:</label>
+    <input type="text" id="beneficiaire" [value]="user.beneficiaire" [disabled]="!isEditMode">
+  </div>
+  <div class="bank-info-item">
+    <label for="iban">IBAN:</label>
+    <input type="text" id="iban" [value]="user.iban" [disabled]="!isEditMode">
+  </div>
+  <div class="bank-info-item">
+    <label for="bic">BIC:</label>
+    <input type="text" id="bic" [value]="user.bic" [disabled]="!isEditMode">
+  </div>
+  <div class="bank-info-item">
+    <label for="nomBanque">Nom et adresse de la banque:</label>
+    <textarea id="nomBanque" [disabled]="!isEditMode">{{ user.nomBanque }}</textarea>
+  </div>
+</div>
+
+<div class="option">
+  <h2>Option</h2>
+  <ul>
+    <li><a routerLink="/help">Help</a></li>
+    <li><a routerLink="/apprendre">Apprendre</a></li>
+    <li><a routerLink="/boite-de-reception">Boite de réception</a></li>
+    <li><a routerLink="/a-propos">A propos de Ravepay</a></li>
+  </ul>
+</div>
+
+
+<div class="security-section">
+  <h2>Sécurité</h2>
+  <ul>
+    <li><a routerLink="/securite-et-confidentialite">Sécurité et confidentialité</a></li>
+    <li><a routerLink="/parametres-de-notification">Paramètres de notification</a></li>
+    <li><a routerLink="/signaler-un-bug">Signaler un bug (!$BOUNTY REWARD$!)</a></li>
+    <li><a routerLink="/se-deconnecter">Se déconnecter</a></li>
+  </ul>
+</div>
+
