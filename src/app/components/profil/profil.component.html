@@ -1,23 +1,24 @@
-<app-header></app-header>
-<app-totemphrase></app-totemphrase>
+
 
 <div class="profile-section">
   <h2>User Info</h2>
   <div class="info-item">
-      <label for="nom">Nom:</label>
-      <input type="text" id="nom" [(ngModel)]="user.nom" [disabled]="!isEditMode">
+    <label for="nom">Nom:</label>
+    <input type="text" id="nom" [value]="user.nom" [disabled]="!isEditMode">
   </div>
   <div class="info-item">
-      <label for="prenom">Prénom:</label>
-      <input type="text" id="prenom" [(ngModel)]="user.prenom" [disabled]="!isEditMode">
+    <label for="prenom">Prénom:</label>
+    <input type="text" id="prenom" [value]="user.prenom" [disabled]="!isEditMode">
   </div>
   <div class="info-item">
-      <label for="email">Adresse email:</label>
-      <input type="text" id="email" [(ngModel)]="user.email" [disabled]="!isEditMode">
+    <label for="email">Adresse email:</label>
+    <input type="text" id="email" [value]="user.email" [disabled]="!isEditMode">
   </div>
   <div class="info-item">
-      <label for="telephone">Numéro de téléphone:</label>
-      <input type="text" id="telephone" [(ngModel)]="user.telephone" [disabled]="!isEditMode">
+    <label for="telephone">Numéro de téléphone:</label>
+    <input type="text" id="telephone" [value]="user.telephone" [disabled]="!isEditMode">
   </div>
-  <button class="edit-button" (click)="toggleEditMode()">{{ isEditMode ? 'Enregistrer' : 'Editer' }}</button>
+  <button class="edit-button" (click)="toggleEditMode()">
+    {{ isEditMode ? 'Enregistrer' : 'Editer' }}
+  </button>
 </div>

@@ -2,58 +2,29 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
-import { InscriptionComponent } from './components/inscription/inscription.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { NoHeaderFooterDirective } from './no-header-footer.directive';
-import { ReactiveFormsModule } from '@angular/forms';
-import {
-  AuthHttpInterceptor,
-  AuthModule,
-  HttpMethod,
-} from '@auth0/auth0-angular';
-import { environment } from 'src/environments/environment';
-import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
-import { DonsComponent } from './components/dons/dons.component';
-import { AProposComponent } from './components/a-propos/a-propos.component';
-import { CguComponent } from './components/cgu/cgu.component';
-import { ToastrModule } from 'ngx-toastr';
-import { LoaderComponent } from './components/loader/loader.component';
-import { FileUploadModule } from 'primeng/fileupload';
-import { AccordionModule } from 'primeng/accordion';
-import { ToastModule } from 'primeng/toast';
-import { PaginatorModule } from 'primeng/paginator';
-import { TotemphraseComponent } from './components/totemphrase/totemphrase.component';
-import { EditProfilComponent } from './components/editprofil/editprofil.component';
 
+import { NoHeaderFooterDirective } from './no-header-footer.directive';
+import { AuthModule, AuthHttpInterceptor, HttpMethod } from '@auth0/auth0-angular';
+import { environment } from 'src/environments/environment';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-
-    InscriptionComponent,
-    HomeComponent,    
-
+    HomeComponent,
     ContactComponent,
-    NoHeaderFooterDirective,   
-
-    DonsComponent,
-    AProposComponent,
-    CguComponent,
-    LoaderComponent,
-    TotemphraseComponent,
-    EditProfilComponent,
+    NoHeaderFooterDirective
   ],
   imports: [
     BrowserModule,
@@ -63,12 +34,8 @@ import { EditProfilComponent } from './components/editprofil/editprofil.componen
     HttpClientModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    MatToolbarModule,
-    MatSidenavModule,
+
     FontAwesomeModule,
-    FileUploadModule,
-    ToastModule,
-    AccordionModule,
     // Auth0 configuration
     AuthModule.forRoot({
       ...environment.auth,
@@ -108,14 +75,11 @@ import { EditProfilComponent } from './components/editprofil/editprofil.componen
         ],
       },
     }),
-    EditorModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
     }),
-    PaginatorModule,
   ],
   providers: [
-    { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthHttpInterceptor,

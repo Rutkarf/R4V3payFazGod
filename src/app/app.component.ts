@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
-import {
-  trigger,
-  animate,
-  style,
-  group,
-  query,
-  transition,
-} from '@angular/animations';
+import { trigger, animate, style, group, query, transition } from '@angular/animations';
 import { AppService } from './services/app.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -28,7 +22,6 @@ import { AppService } from './services/app.service';
         ]),
       ]),
     ]),
-    
   ],
 })
 export class AppComponent {
@@ -37,9 +30,10 @@ export class AppComponent {
 
   constructor(private appService: AppService) {}
 
-  getState(outlet: any) {
-    // Changing the activatedRouteData.state triggers the animation
-    return outlet.activatedRouteData.state;
-  }
+  title = 'Your App Title'; // Replace with your app's title
 
+  getState(outlet: any) {
+    // Ensure that activatedRouteData exists and has a state property
+    return outlet.activatedRouteData.state || 'default';
+  }
 }
