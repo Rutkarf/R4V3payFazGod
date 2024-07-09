@@ -5,8 +5,6 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
-import { ProfilComponent } from './components/profil/profil.component';
-import { ConnexionComponent } from './components/connexion/connexion.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
@@ -30,9 +28,6 @@ import { AProposComponent } from './components/a-propos/a-propos.component';
 import { CguComponent } from './components/cgu/cgu.component';
 import { ToastrModule } from 'ngx-toastr';
 import { LoaderComponent } from './components/loader/loader.component';
-import { TchatComponent } from './components/tchat/tchat.component';
-import { TchatIconComponent } from './components/tchat/tchat-icon/tchat-icon.component';
-import { TchatMessageComponent } from './components/tchat/tchat-message/tchat-message.component';
 import { FileUploadModule } from 'primeng/fileupload';
 import { AccordionModule } from 'primeng/accordion';
 import { ToastModule } from 'primeng/toast';
@@ -46,19 +41,17 @@ import { EditProfilComponent } from './components/editprofil/editprofil.componen
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ProfilComponent,
-    ConnexionComponent,
+
     InscriptionComponent,
-    HomeComponent,
+    HomeComponent,    
+
     ContactComponent,
-    NoHeaderFooterDirective,
+    NoHeaderFooterDirective,   
+
     DonsComponent,
     AProposComponent,
     CguComponent,
     LoaderComponent,
-    TchatComponent,
-    TchatIconComponent,
-    TchatMessageComponent,
     TotemphraseComponent,
     EditProfilComponent,
   ],

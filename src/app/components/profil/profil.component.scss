@@ -1,112 +1,41 @@
-
-.container {
-    width: 100%;
+.profile-section {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
 }
 
-@media(min-width:640px) {
-    .container {
-        max-width: 640px;
-    }
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-@media(min-width:768px) {
-    .container {
-        max-width: 768px;
-    }
+.info-item label {
+    font-weight: bold;
+    width: 150px;
+    margin-right: 10px;
 }
 
-@media(min-width:1024px) {
-    .container {
-        max-width: 1024px;
-    }
+.info-item input[type="text"] {
+    width: 300px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
 }
 
-@media(min-width:1280px) {
-    .container {
-        max-width: 1280px;
-    }
+.edit-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
-@media(min-width:1536px) {
-    .container {
-        max-width: 1536px;
-    }
-}
-
-@media(min-width:1536px) {
-    .container {
-        max-width: 1280px;
-    }
-}
-
-.bg-blueGray-200 {
-    --tw-bg-opacity: 1;
-    background-color: rgba(226, 232, 240, var(--tw-bg-opacity));
-}
-
-.font-semibold {
-    font-weight: 600;
-}
-
-.h-auto {
-    height: auto;
-}
-
-.h-full {
-    height: 100%;
-}
-
-.h-screen {
-    height: 100vh;
-}
-
-.h-95-px {
-    height: 95px;
-}
-
-.h-70-px {
-    height: 70px;
-}
-
-.h-350-px {
-    height: 350px;
-}
-
-.h-500-px {
-    height: 500px;
-}
-
-.h-600-px {
-    height: 600px;
-}
-
-.text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-}
-
-.max-w-150-px {
-    max-width: 150px;
-}
-
-.text-blueGray-200 {
-    --tw-text-opacity: 1;
-    color: rgba(226, 232, 240, var(--tw-text-opacity));
-}
-
-.text-blueGray-400 {
-    --tw-text-opacity: 1;
-    color: rgba(148, 163, 184, var(--tw-text-opacity));
-}
-
-.text-blueGray-700 {
-    --tw-text-opacity: 1;
-    color: rgba(51, 65, 85, var(--tw-text-opacity));
-}
-
-@media(min-width:1024px) {
-    .lg\:text-blueGray-200 {
-        --tw-text-opacity: 1;
-        color: rgba(226, 232, 240, var(--tw-text-opacity));
-    }
-}

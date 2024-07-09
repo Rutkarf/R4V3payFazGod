@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
-import { faHeart, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { Utilisateur } from '../../interfaces/interfaces';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'; // Import du module FormsModule
 
-@Component({
-  selector: 'app-profil',
-  templateUrl: './profil.component.html',
-  styleUrls: ['./profil.component.scss'],
+
+
+
+@NgModule({
+  declarations: [
+    
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule // Ajout du FormsModule ici
+  ],
+  providers: [],
+  bootstrap: []
 })
-export class ProfilComponent {
-  id: number = 14;
-  user?: Utilisateur;
-  faHeart = faHeart;
-  faXmark = faXmark;
+export class AppModule { }
 
-  constructor(public auth: AuthService) {}
-}

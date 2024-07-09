@@ -1,14 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   trigger,
   animate,
   style,
   group,
-  animateChild,
   query,
-  stagger,
   transition,
-  state,
 } from '@angular/animations';
 import { AppService } from './services/app.service';
 @Component({
