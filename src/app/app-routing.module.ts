@@ -1,23 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { ProfilComponent } from './components/profil/profil.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { AnimauxListComponent } from './components/animaux/animaux-list/animaux-list.component';
-import { AnimauxDetailsComponent } from './components/animaux/animaux-details/animaux-details.component';
 import { DonsComponent } from './components/dons/dons.component';
-import { AssociationsListComponent } from './components/associations/associations-list/associations-list.component';
 import { AProposComponent } from './components/a-propos/a-propos.component';
 import { CguComponent } from './components/cgu/cgu.component';
-import { ErreurComponent } from './components/erreur/erreur.component';
 import { AuthGuard } from '@auth0/auth0-angular';
-import { TchatComponent } from './components/tchat/tchat.component';
-import { AssociationsDetailsComponent } from './components/associations/associations-details/associations-details.component';
-import { BugComponent } from './components/bug/bug.component';
-
+import { TchatComponent } from './components/tchat/tchat.component';n
 const routes: Routes = [
   {
     path: '',
@@ -41,29 +33,14 @@ const routes: Routes = [
     path: 'contact',
     component: ContactComponent,
   },
-  {
-    path: 'animaux/:id',
-    component: AnimauxDetailsComponent,
-  },
-  {
-    path: 'animaux',
-    component: AnimauxListComponent,
-    data: { state: 'animaux' },
-  },
+  
   {
     path: 'dons',
     component: DonsComponent,
     data: { state: 'dons' },
   },
-  {
-    path: 'associations/:id',
-    component: AssociationsDetailsComponent,
-  },
-  {
-    path: 'associations',
-    component: AssociationsListComponent,
-    data: { state: 'associations' },
-  },
+ 
+
   {
     path: 'a-propos',
     component: AProposComponent,
@@ -81,16 +58,8 @@ const routes: Routes = [
     component : HomeComponent
   },
   {
-    path: 'bug',
-    component: BugComponent
-  },
-  {
     path: '**',
     redirectTo: 'erreur',
-  },
-  {
-    path: 'erreur',
-    component: ErreurComponent,
   },
 ];
 

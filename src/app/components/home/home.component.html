@@ -1,106 +1,82 @@
-<div class="text-center lg:pt-32 mb-12">
-    <h1 class="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-        Bienvenue chez les petits chats !
-        <fa-icon [icon]="faPaw" (click)="showSuccess()"></fa-icon>
-    </h1>
-    <p class="text-center text-lg tracking-tight text-slate-700">
-        Notre plateforme regroupe les annonces de diverses associations afin de vous aider à trouver votre nouveau
-        compagnon.
-    </p>
+<app-header></app-header>
 
-    <div>
-        <a class="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-orange-700 text-white hover:bg-orange-800 hover:text-white active:bg-orange-600 active:text-white focus-visible:outline-orange-700"
-            routerLink="/animaux" routerLinkActive="active" ariaCurrentWhenActive="page">
-            Voir tous les animaux
-        </a>
+
+
+<div class="container">
+  <!-- Section Phrase Totem -->
+  <div class="phrase-totem">
+    <div *ngIf="!editing" class="totem-text-container">
+      <span class="totem-text">{{ totemPhrase }}</span>
+      <button class="edit-button" (click)="startEditing()">Editer</button>
     </div>
-    
-</div>
-
-
-<div class="bg-white py-24 sm:py-32">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl lg:text-center">
-        <h2 class="text-base font-semibold leading-7">Comment ça marche ?</h2>
-        <p class="mt-2 text-lg tracking-tight text-gray-900 sm:text-lg">Tout ce que vous devez savoir pour adopter votre nouveau compagnon</p>
-        <p class="mt-6 text-lg leading-8 text-gray-600">Un processus en quatre étapes pour accueillir un chat dans votre vie. Simple, rapide et sûr.</p>
-      </div>
-      <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-        <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-          <div class="relative pl-16">
-            <dt class="text-xl font-semibold leading-7 text-gray-900">
-              <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg  text-orange-700">
-                <!-- Icon for Découvrez -->
-                1
-              </div>
-              Découvrez
-            </dt>
-            <dd class="mt-2 text-base leading-7 text-gray-600">Parcourez notre galerie de chats adorables, tous en quête d'un nouveau départ. Utilisez nos filtres pour trouver un compagnon qui correspond à votre mode de vie et à vos préférences.</dd>
-          </div>
-          <div class="relative pl-16">
-            <dt class="text-xl font-semibold leading-7 text-gray-900">
-              <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg text-orange-700">
-                <!-- Icon for Apprenez -->
-                2
-              </div>
-              Apprenez
-            </dt>
-            <dd class="mt-2 text-base leading-7 text-gray-600">Chaque chat a son histoire. Découvrez leur personnalité, leur passé et leurs besoins spécifiques pour voir si vous êtes le match parfait.</dd>
-          </div>
-          <div class="relative pl-16">
-            <dt class="text-xl font-semibold leading-7 text-gray-900">
-              <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg text-orange-700">
-                <!-- Icon for Rencontrez -->
-                3
-              </div>
-              Rencontrez
-            </dt>
-            <dd class="mt-2 text-base leading-7 text-gray-600">Une fois que vous avez trouvé un ou plusieurs candidats, contactez l'organisation concernée via notre plateforme pour organiser une rencontre.</dd>
-          </div>
-          <div class="relative pl-16">
-            <dt class="text-xl font-semibold leading-7 text-gray-900">
-              <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg text-orange-700">
-                <!-- Icon for Adoptez -->
-                4
-              </div>
-              Adoptez
-            </dt>
-            <dd class="mt-2 text-base leading-7 text-gray-600">Trouvez votre compagnon de vie et commencez votre parcours ensemble, avec le soutien et les conseils de notre communauté.</dd>
-          </div>
-        </dl>
+    <div *ngIf="editing" class="totem-edit-container">
+      <textarea class="edit-textarea" [(ngModel)]="editedTotemPhrase"></textarea>
+      <div class="edit-buttons">
+        <button class="save-button" (click)="saveTotemPhrase()">Enregistrer</button>
+        <button class="cancel-button" (click)="cancelEditing()">Annuler</button>
       </div>
     </div>
   </div>
-  
 
+  <!-- Section Value Global Account -->
+  <div class="value-global-account">
+    <h2>Value Global Account</h2>
+    <div class="account-line">
+      <span class="label">F.I.A.T:</span>
+      <span class="value">{{ fiatAmount }}</span>
+    </div>
+    <div class="account-line">
+      <span class="label">R4V3 Token:</span>
+      <span class="value">{{ r4v3TokenAmount }}</span>
+    </div>
+    <div class="account-line">
+      <span class="label">Somme Globale:</span>
+      <span class="value">{{ totalAmount }}</span>
+    </div>
+  </div>
 
-
-  <div class="bg-white py-32">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Notre mission</h2>
-        <div class="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
-          <div class="lg:w-full lg:max-w-2xl lg:flex-auto">
-            <p class="text-xl leading-8 text-gray-600">Notre engagement est de lutter contre l'abandon des chats et de promouvoir l'adoption responsable. À travers notre plateforme, nous aspirons à créer des liens durables entre les chats abandonnés et les familles désireuses d'accueillir un nouveau membre. Nous œuvrons pour une société où chaque chat trouve un foyer aimant et sécurisé.</p>
-            <p class="mt-10 max-w-xl text-base leading-7 text-gray-700">Nous collaborons étroitement avec des refuges et des associations pour offrir une seconde chance à ces animaux. En fournissant des informations complètes et transparentes, nous facilitons le processus d'adoption pour rendre chaque transition aussi douce que possible, tant pour les chats que pour leurs futurs propriétaires.</p>
-          </div>
-          <div class="lg:flex lg:flex-auto lg:justify-center">
-            <dl class="w-64 space-y-8 xl:w-80">
-              <div class="flex flex-col-reverse gap-y-4">
-                  <dt class="text-base leading-7 text-gray-600">Chats abandonnés chaque année</dt>
-                  <dd class="text-5xl font-semibold tracking-tight text-gray-900">100,000</dd> <!-- Hypothetical data -->
-                </div>
-              <div class="flex flex-col-reverse gap-y-4">
-                  <dt class="text-base leading-7 text-gray-600">Chats adoptés via notre plateforme</dt>
-                  <dd class="text-5xl font-semibold tracking-tight text-gray-900">5,000</dd> <!-- Hypothetical data -->
-                </div>
-              <div class="flex flex-col-reverse gap-y-4">
-                  <dt class="text-base leading-7 text-gray-600">Partenaires refuges et associations</dt>
-                  <dd class="text-5xl font-semibold tracking-tight text-gray-900">200</dd> <!-- Hypothetical data -->
-                </div>
-            </dl>
-          </div>
+  <!-- Section Dernières Transactions Carte -->
+  <div class="latest-card-transactions">
+    <h2>Dernières transactions carte</h2>
+    <div class="transaction-menu">
+      <select [(ngModel)]="selectedCardTransactionCount" (ngModelChange)="loadCardTransactions()">
+        <option value="4">Afficher les 4 dernières transactions</option>
+        <option value="10">Afficher les 10 dernières transactions</option>
+      </select>
+    </div>
+    <div class="transaction-list">
+      <div *ngFor="let transaction of cardTransactions" class="transaction-item">
+        <div class="transaction-details">
+          <span class="transaction-date">{{ transaction.date | date }}</span>
+          <span class="transaction-amount">{{ transaction.amount }} EUR</span>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Section Dernières Transactions Crypto -->
+  <div class="latest-transactions">
+    <h2>Dernières transactions crypto</h2>
+    <div class="transaction-list">
+      <div *ngFor="let transaction of cryptoTransactions" class="transaction-item">
+        <div class="transaction-details">
+          <span class="transaction-date">{{ transaction.date | date }}</span>
+          <span class="transaction-amount">{{ transaction.amount }} USD</span>
+        </div>
+      </div>
+    </div>
+    <div class="transaction-dropdown">
+      <label for="cryptoTransactionCount">Afficher :</label>
+      <select id="cryptoTransactionCount" [(ngModel)]="selectedCryptoTransactionCount" (ngModelChange)="loadCryptoTransactions()">
+        <option value="4">4 dernières transactions</option>
+        <option value="10">10 dernières transactions</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
