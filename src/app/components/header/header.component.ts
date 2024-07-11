@@ -1,0 +1,17 @@
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
+
+
+@Component({
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
+})
+export class HeaderComponent {
+  isCollapsed = true;
+  public isMenuOpen: boolean = false;
+
+  constructor(
+    @Inject(DOCUMENT) private doc: Document
+  ) {}
+}

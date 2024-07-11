@@ -1,0 +1,49 @@
+.phrase-totem {
+    margin-bottom: 20px;
+    text-align: center; /* Centrage horizontal de la phrase totem */
+  }
+  
+  .totem-text-container {
+    display: flex;
+    align-items: center; /* Centrage vertical pour le bouton "Editer" */
+    justify-content: center; /* Centrage horizontal pour la phrase totem et le bouton "Editer" */
+  }
+  
+  .totem-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-right: 10px; /* Marge à droite du texte de la phrase totem */
+  }
+  
+  .edit-button {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    background-color: #af4c9d;
+    color: white;
+    border-radius: 4px;
+  }
+  
+  .edit-textarea {
+    width: 100%;
+    height: 100px;
+    padding: 8px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .edit-buttons {
+    display: flex;
+    justify-content: center; /* Centrage horizontal des boutons "Enregistrer" et "Annuler" */
+  }
+  
+  .save-button,
+  .cancel-button {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    background-color: #af4c9d;
+    color: white;
+    border-radius: 4px;
+    margin-right: 5px; /* Marge entre les boutons "Enregistrer" et "Annuler" */
+  }

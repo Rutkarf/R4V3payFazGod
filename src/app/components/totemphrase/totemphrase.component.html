@@ -1,0 +1,14 @@
+<!-- Section Phrase Totem -->
+<div class="phrase-totem">
+    <div *ngIf="!editing" class="totem-text-container">
+      <span class="totem-text">{{ totemPhrase }}</span>
+      <button class="edit-button" (click)="startEditing()">Editer</button>
+    </div>
+    <div *ngIf="editing" class="totem-edit-container">
+      <textarea class="edit-textarea" [(ngModel)]="editedTotemPhrase"></textarea>
+      <div class="edit-buttons">
+        <button class="save-button" (click)="saveTotemPhrase()">Enregistrer</button>
+        <button class="cancel-button" (click)="cancelEditing()">Annuler</button>
+      </div>
+    </div>
+  </div>

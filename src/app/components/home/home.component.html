@@ -1,0 +1,78 @@
+<div class="container">
+  <!-- Section Phrase Totem -->
+  <div class="phrase-totem">
+    <div *ngIf="!editing" class="totem-text-container">
+      <span class="totem-text">{{ totemPhrase }}</span>
+      <button class="edit-button" (click)="startEditing()">Editer</button>
+    </div>
+    <div *ngIf="editing" class="totem-edit-container">
+      <textarea class="edit-textarea" [(ngModel)]="editedTotemPhrase"></textarea>
+      <div class="edit-buttons">
+        <button class="save-button" (click)="saveTotemPhrase()">Enregistrer</button>
+        <button class="cancel-button" (click)="cancelEditing()">Annuler</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section Value Global Account -->
+  <div class="value-global-account">
+    <h2>Value Global Account</h2>
+    <div class="account-line">
+      <span class="label">F.I.A.T:</span>
+      <span class="value">{{ fiatAmount }}</span>
+    </div>
+    <div class="account-line">
+      <span class="label">R4V3 Token:</span>
+      <span class="value">{{ r4v3TokenAmount }}</span>
+    </div>
+    <div class="account-line">
+      <span class="label">Somme Globale:</span>
+      <span class="value">{{ totalAmount }}</span>
+    </div>
+  </div>
+
+  <!-- Section Dernières Transactions Carte -->
+  <div class="latest-card-transactions">
+    <h2>Dernières transactions carte</h2>
+    <div class="transaction-menu">
+      <select [(ngModel)]="selectedCardTransactionCount" (ngModelChange)="loadCardTransactions()">
+        <option value="4">Afficher les 4 dernières transactions</option>
+        <option value="10">Afficher les 10 dernières transactions</option>
+      </select>
+    </div>
+    <div class="transaction-list">
+      <div *ngFor="let transaction of cardTransactions" class="transaction-item">
+        <div class="transaction-details">
+          <span class="transaction-date">{{ transaction.date | date }}</span>
+          <span class="transaction-amount">{{ transaction.amount }} EUR</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section Dernières Transactions Crypto -->
+  <div class="latest-transactions">
+    <h2>Dernières transactions crypto</h2>
+    <div class="transaction-list">
+      <div *ngFor="let transaction of cryptoTransactions" class="transaction-item">
+        <div class="transaction-details">
+          <span class="transaction-date">{{ transaction.date | date }}</span>
+          <span class="transaction-amount">{{ transaction.amount }} USD</span>
+        </div>
+      </div>
+    </div>
+    <div class="transaction-dropdown">
+      <label for="cryptoTransactionCount">Afficher :</label>
+      <select id="cryptoTransactionCount" [(ngModel)]="selectedCryptoTransactionCount" (ngModelChange)="loadCryptoTransactions()">
+        <option value="4">4 dernières transactions</option>
+        <option value="10">10 dernières transactions</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

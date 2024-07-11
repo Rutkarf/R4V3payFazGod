@@ -1,0 +1,131 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .phrase-totem {
+    margin-bottom: 20px;
+    text-align: center; /* Centrage horizontal de la phrase totem */
+  }
+  
+  .totem-text-container {
+    display: flex;
+    align-items: center; /* Centrage vertical pour le bouton "Editer" */
+    justify-content: center; /* Centrage horizontal pour la phrase totem et le bouton "Editer" */
+  }
+  
+  .totem-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-right: 10px; /* Marge à droite du texte de la phrase totem */
+  }
+  
+  .edit-button {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    background-color: #af4c9d;
+    color: white;
+    border-radius: 4px;
+  }
+  
+  .edit-textarea {
+    width: 100%;
+    height: 100px;
+    padding: 8px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .edit-buttons {
+    display: flex;
+    justify-content: center; /* Centrage horizontal des boutons "Enregistrer" et "Annuler" */
+  }
+  
+  .save-button,
+  .cancel-button {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    background-color: #af4c9d;
+    color: white;
+    border-radius: 4px;
+    margin-right: 5px; /* Marge entre les boutons "Enregistrer" et "Annuler" */
+  }
+  
+  .value-global-account {
+    text-align: center; /* Centrage horizontal du contenu */
+    margin-top: 20px; /* Espacement par rapport à la section précédente */
+    background-color: #f3f4f6; /* Couleur de fond */
+    padding: 20px; /* Espacement interne */
+  
+    /* Style pour le titre "Value Global Account" */
+    h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333; /* Couleur du texte */
+      margin-bottom: 10px; /* Espacement en bas du titre */
+    }
+  
+    /* Style des lignes de compte */
+    .account-line {
+      display: flex;
+      justify-content: space-between; /* Espace équitablement les éléments */
+      margin-bottom: 10px; /* Espacement entre chaque ligne */
+    }
+  
+    /* Style pour les labels (F.I.A.T, R4V3 Token, Somme Globale) */
+    .label {
+      font-weight: bold;
+      color: #666; /* Couleur du texte */
+    }
+  
+    /* Style pour les valeurs (montants) */
+    .value {
+      font-weight: bold;
+      color: #333; /* Couleur du texte */
+    }
+  }
+  
+  .latest-card-transactions {
+    margin-bottom: 20px;
+  }
+  
+  .transaction-menu {
+    margin-bottom: 10px;
+  }
+  
+  .transaction-list {
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-height: 200px; /* Pour définir une hauteur maximale pour la liste des transactions */
+    overflow-y: auto; /* Ajouter une barre de défilement vertical si nécessaire */
+  }
+  
+  .transaction-item {
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+  }
+  
+  .transaction-details {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .transaction-date {
+    font-weight: bold;
+  }
+  
+  .transaction-amount {
+    font-weight: bold;
+    color: #1a73e8; /* Couleur bleue pour l'amount */
+  }
+
+
+  
+  
+  
+  

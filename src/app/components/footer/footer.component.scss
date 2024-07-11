@@ -1,0 +1,37 @@
+/* styles.css ou styles.scss */
+
+footer {
+    background-color: #262626;
+    color: #ffffff;
+    padding: 20px 0; /* Ajustez le padding selon vos besoins */
+    text-align: center; /* Pour centrer les éléments horizontalement */
+  }
+  
+  footer .flex {
+    display: flex; /* Utilisation de flexbox pour les liens */
+    justify-content: center; /* Pour centrer les éléments horizontalement */
+  }
+  
+  footer .flex a {
+    text-decoration: none; /* Supprimez la décoration du texte des liens */
+    padding: 8px 16px; /* Ajustez le padding selon vos besoins */
+    border-radius: 4px; /* Pour des coins arrondis */
+    transition: background-color 0.3s, color 0.3s; /* Transition douce pour les effets hover */
+    margin: 0 10px; /* Espacement entre les liens */
+  }
+  
+  footer .flex a:hover {
+    background-color: #ffffff;
+    color: #262626;
+  }
+  
+  @media (max-width: 640px) {
+    footer .flex {
+      flex-wrap: wrap; /* Pour gérer le passage à la ligne des liens sur des écrans plus petits */
+    }
+  
+    footer .flex a {
+      margin: 5px; /* Espacement entre les liens lorsque le flex-wrap est activé */
+    }
+  }
+  
