@@ -1,26 +1,26 @@
-<div class="container">
+<div class="container mt-5">
   <!-- Section User Info -->
-  <div class="row justify-content-center">
+  <div class="row justify-content-center mb-5">
     <div class="col-lg-8">
-      <div class="profile-section">
-        <h2>User Info</h2>
-        <div class="info-item">
+      <div class="profile-section card p-4">
+        <h2 class="text-center">User Info</h2>
+        <div class="info-item mb-3">
           <label for="nom">Nom:</label>
-          <input type="text" id="nom" [value]="user.nom" [disabled]="!isEditMode">
+          <input type="text" id="nom" class="form-control" [value]="user.nom" [disabled]="!isEditMode">
         </div>
-        <div class="info-item">
+        <div class="info-item mb-3">
           <label for="prenom">Prénom:</label>
-          <input type="text" id="prenom" [value]="user.prenom" [disabled]="!isEditMode">
+          <input type="text" id="prenom" class="form-control" [value]="user.prenom" [disabled]="!isEditMode">
         </div>
-        <div class="info-item">
+        <div class="info-item mb-3">
           <label for="email">Adresse email:</label>
-          <input type="text" id="email" [value]="user.email" [disabled]="!isEditMode">
+          <input type="text" id="email" class="form-control" [value]="user.email" [disabled]="!isEditMode">
         </div>
-        <div class="info-item">
+        <div class="info-item mb-3">
           <label for="telephone">Numéro de téléphone:</label>
-          <input type="text" id="telephone" [value]="user.telephone" [disabled]="!isEditMode">
+          <input type="text" id="telephone" class="form-control" [value]="user.telephone" [disabled]="!isEditMode">
         </div>
-        <button class="edit-button" (click)="toggleEditMode()">
+        <button class="btn btn-primary" (click)="toggleEditMode()">
           {{ isEditMode ? 'Enregistrer' : 'Editer' }}
         </button>
       </div>
@@ -28,59 +28,60 @@
   </div>
 
   <!-- Section Relevé d'Identité Bancaire -->
-  <div class="row justify-content-center">
+  <div class="row justify-content-center mb-5">
     <div class="col-lg-8">
-      <div class="bank-info">
-        <h3>Relevé d'Identité Bancaire</h3>
-        <div class="bank-info-item">
+      <div class="bank-info card p-4">
+        <h3 class="text-center">Relevé d'Identité Bancaire</h3>
+        <div class="bank-info-item mb-3">
           <label for="beneficiaire">Bénéficiaire:</label>
-          <input type="text" id="beneficiaire" [value]="user.beneficiaire" [disabled]="!isEditMode">
+          <input type="text" id="beneficiaire" class="form-control" [value]="user.beneficiaire" [disabled]="!isEditMode">
         </div>
-        <div class="bank-info-item">
+        <div class="bank-info-item mb-3">
           <label for="iban">IBAN:</label>
-          <input type="text" id="iban" [value]="user.iban" [disabled]="!isEditMode">
+          <input type="text" id="iban" class="form-control" [value]="user.iban" [disabled]="!isEditMode">
         </div>
-        <div class="bank-info-item">
+        <div class="bank-info-item mb-3">
           <label for="bic">BIC:</label>
-          <input type="text" id="bic" [value]="user.bic" [disabled]="!isEditMode">
+          <input type="text" id="bic" class="form-control" [value]="user.bic" [disabled]="!isEditMode">
         </div>
-        <div class="bank-info-item">
+        <div class="bank-info-item mb-3">
           <label for="nomBanque">Nom et adresse de la banque:</label>
-          <textarea id="nomBanque" [disabled]="!isEditMode">{{ user.nomBanque }}</textarea>
+          <textarea id="nomBanque" class="form-control" [disabled]="!isEditMode">{{ user.nomBanque }}</textarea>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Section Option -->
-  <div class="row justify-content-center">
-    <div class="col-lg-8">
-      <div class="option">
-        <h2>Option</h2>
-        <ul>
-          <li><a routerLink="/help">Help</a></li>
-          <li><a routerLink="/apprendre">Apprendre</a></li>
-          <li><a routerLink="/boite-de-reception">Boite de réception</a></li>
-          <li><a routerLink="/a-propos">A propos de Ravepay</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Section Sécurité -->
-  <div class="row justify-content-center">
-    <div class="col-lg-8">
-      <div class="security-section">
-        <h2>Sécurité</h2>
-        <ul>
-          <li><a routerLink="/securite-et-confidentialite">Sécurité et confidentialité</a></li>
-          <li><a routerLink="/parametres-de-notification">Paramètres de notification</a></li>
-          <li><a routerLink="/signaler-un-bug">Signaler un bug (!$BOUNTY REWARD$!)</a></li>
-          <li><a routerLink="/se-deconnecter">Se déconnecter</a></li>
-        </ul>
-      </div>
+<!-- Section Option -->
+<div class="row justify-content-center mb-5">
+  <div class="col-lg-8">
+    <div class="option card p-4">
+      <h2 class="text-center">Option</h2>
+      <ul class="list-unstyled text-center">
+        <li class="mb-2"><a routerLink="/help">Help</a></li>
+        <li class="mb-2"><a routerLink="/apprendre">Apprendre</a></li>
+        <li class="mb-2"><a routerLink="/boite-de-reception">Boite de réception</a></li>
+        <li class="mb-2"><a routerLink="/a-propos">A propos de Ravepay</a></li>
+      </ul>
     </div>
   </div>
 </div>
+
+<!-- Section Sécurité -->
+<div class="row justify-content-center mb-5">
+  <div class="col-lg-8">
+    <div class="security-section card p-4">
+      <h2 class="text-center">Sécurité</h2>
+      <ul class="list-unstyled text-center">
+        <li class="mb-2"><a routerLink="/securite-et-confidentialite">Sécurité et confidentialité</a></li>
+        <li class="mb-2"><a routerLink="/parametres-de-notification">Paramètres de notification</a></li>
+        <li class="mb-2"><a routerLink="/signaler-un-bug">Signaler Bugz (!$BOUNTY REWARD$!)</a></li>
+        <li class="mb-2"><a routerLink="/se-deconnecter">Se déconnecter</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
 
 
