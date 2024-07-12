@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 
 
 @Component({
@@ -7,11 +7,14 @@ import { Component, Inject } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   isCollapsed = true;
   public isMenuOpen: boolean = false;
 
   constructor(
     @Inject(DOCUMENT) private doc: Document
   ) {}
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 }
