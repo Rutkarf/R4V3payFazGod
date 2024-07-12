@@ -1,67 +1,86 @@
+<div class="container">
+  <!-- Section User Info -->
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="profile-section">
+        <h2>User Info</h2>
+        <div class="info-item">
+          <label for="nom">Nom:</label>
+          <input type="text" id="nom" [value]="user.nom" [disabled]="!isEditMode">
+        </div>
+        <div class="info-item">
+          <label for="prenom">Prénom:</label>
+          <input type="text" id="prenom" [value]="user.prenom" [disabled]="!isEditMode">
+        </div>
+        <div class="info-item">
+          <label for="email">Adresse email:</label>
+          <input type="text" id="email" [value]="user.email" [disabled]="!isEditMode">
+        </div>
+        <div class="info-item">
+          <label for="telephone">Numéro de téléphone:</label>
+          <input type="text" id="telephone" [value]="user.telephone" [disabled]="!isEditMode">
+        </div>
+        <button class="edit-button" (click)="toggleEditMode()">
+          {{ isEditMode ? 'Enregistrer' : 'Editer' }}
+        </button>
+      </div>
+    </div>
+  </div>
 
+  <!-- Section Relevé d'Identité Bancaire -->
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="bank-info">
+        <h3>Relevé d'Identité Bancaire</h3>
+        <div class="bank-info-item">
+          <label for="beneficiaire">Bénéficiaire:</label>
+          <input type="text" id="beneficiaire" [value]="user.beneficiaire" [disabled]="!isEditMode">
+        </div>
+        <div class="bank-info-item">
+          <label for="iban">IBAN:</label>
+          <input type="text" id="iban" [value]="user.iban" [disabled]="!isEditMode">
+        </div>
+        <div class="bank-info-item">
+          <label for="bic">BIC:</label>
+          <input type="text" id="bic" [value]="user.bic" [disabled]="!isEditMode">
+        </div>
+        <div class="bank-info-item">
+          <label for="nomBanque">Nom et adresse de la banque:</label>
+          <textarea id="nomBanque" [disabled]="!isEditMode">{{ user.nomBanque }}</textarea>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="profile-section">
-  <h2>User Info</h2>
-  <div class="info-item">
-    <label for="nom">Nom:</label>
-    <input type="text" id="nom" [value]="user.nom" [disabled]="!isEditMode">
+  <!-- Section Option -->
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="option">
+        <h2>Option</h2>
+        <ul>
+          <li><a routerLink="/help">Help</a></li>
+          <li><a routerLink="/apprendre">Apprendre</a></li>
+          <li><a routerLink="/boite-de-reception">Boite de réception</a></li>
+          <li><a routerLink="/a-propos">A propos de Ravepay</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="info-item">
-    <label for="prenom">Prénom:</label>
-    <input type="text" id="prenom" [value]="user.prenom" [disabled]="!isEditMode">
+
+  <!-- Section Sécurité -->
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="security-section">
+        <h2>Sécurité</h2>
+        <ul>
+          <li><a routerLink="/securite-et-confidentialite">Sécurité et confidentialité</a></li>
+          <li><a routerLink="/parametres-de-notification">Paramètres de notification</a></li>
+          <li><a routerLink="/signaler-un-bug">Signaler un bug (!$BOUNTY REWARD$!)</a></li>
+          <li><a routerLink="/se-deconnecter">Se déconnecter</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="info-item">
-    <label for="email">Adresse email:</label>
-    <input type="text" id="email" [value]="user.email" [disabled]="!isEditMode">
-  </div>
-  <div class="info-item">
-    <label for="telephone">Numéro de téléphone:</label>
-    <input type="text" id="telephone" [value]="user.telephone" [disabled]="!isEditMode">
-  </div>
-  <button class="edit-button" (click)="toggleEditMode()">
-    {{ isEditMode ? 'Enregistrer' : 'Editer' }}
-  </button>
 </div>
 
- <!-- Section Relevé d'Identité Bancaire -->
- <div class="bank-info">
-  <h3>Relevé d'Identité Bancaire</h3>
-  <div class="bank-info-item">
-    <label for="beneficiaire">Bénéficiaire:</label>
-    <input type="text" id="beneficiaire" [value]="user.beneficiaire" [disabled]="!isEditMode">
-  </div>
-  <div class="bank-info-item">
-    <label for="iban">IBAN:</label>
-    <input type="text" id="iban" [value]="user.iban" [disabled]="!isEditMode">
-  </div>
-  <div class="bank-info-item">
-    <label for="bic">BIC:</label>
-    <input type="text" id="bic" [value]="user.bic" [disabled]="!isEditMode">
-  </div>
-  <div class="bank-info-item">
-    <label for="nomBanque">Nom et adresse de la banque:</label>
-    <textarea id="nomBanque" [disabled]="!isEditMode">{{ user.nomBanque }}</textarea>
-  </div>
-</div>
-
-<div class="option">
-  <h2>Option</h2>
-  <ul>
-    <li><a routerLink="/help">Help</a></li>
-    <li><a routerLink="/apprendre">Apprendre</a></li>
-    <li><a routerLink="/boite-de-reception">Boite de réception</a></li>
-    <li><a routerLink="/a-propos">A propos de Ravepay</a></li>
-  </ul>
-</div>
-
-
-<div class="security-section">
-  <h2>Sécurité</h2>
-  <ul>
-    <li><a routerLink="/securite-et-confidentialite">Sécurité et confidentialité</a></li>
-    <li><a routerLink="/parametres-de-notification">Paramètres de notification</a></li>
-    <li><a routerLink="/signaler-un-bug">Signaler un bug (!$BOUNTY REWARD$!)</a></li>
-    <li><a routerLink="/se-deconnecter">Se déconnecter</a></li>
-  </ul>
-</div>
 

@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <h2 class="mb-4 text-center">Credit Card Virtual</h2>
+  
+        <!-- Card Number -->
+        <div class="row mb-3">
+          <label for="cardNumber" class="col-sm-3 col-form-label">Card Number:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="cardNumber" placeholder="Enter card number">
+          </div>
+        </div>
+  
+        <!-- Expiry Date -->
+        <div class="row mb-3">
+          <label for="expiryDate" class="col-sm-3 col-form-label">Expiry Date:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="expiryDate" placeholder="MM/YYYY">
+          </div>
+        </div>
+  
+        <!-- CVV -->
+        <div class="row mb-3">
+          <label for="cvv" class="col-sm-3 col-form-label">CVV:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="cvv" placeholder="Enter CVV">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+   <!-- Section Historique Transactions Carte -->
+   <div class="row align-items-center justify-content-center mt-5">
+    <div class="col-lg-8">
+      <div class="latest-card-transactions">
+        <h2>Dernières transactions carte</h2>
+        <div class="transaction-menu">
+          <select class="form-select" [(ngModel)]="selectedCardTransactionCount" (ngModelChange)="loadCardTransactions()">
+            <option value="4">Afficher les 4 dernières transactions</option>
+            <option value="10">Afficher les 10 dernières transactions</option>
+          </select>
+        </div>
+        <div class="transaction-list mt-3">
+          <div *ngFor="let transaction of cardTransactions" class="transaction-item mb-3">
+            <div class="transaction-details">
+              <span class="transaction-date">{{ transaction.date | date }}</span>
+              <span class="transaction-amount">{{ transaction.amount }} EUR</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Section How To Paid -->
+  <section class="how-to-paid mb-5">
+    <div class="text-center">
+      <h3>How To Paid</h3>
+      <div class="how-to-paid-info">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consequat feugiat mauris,
+          eget elementum velit commodo in. Vestibulum convallis purus non tincidunt semper.
+          Morbi vulputate, libero eget lacinia blandit, tellus diam condimentum ex, nec ultrices
+          mauris nisi in eros.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Natur-Less -->
+  <section class="natur-less mb-5">
+    <div class="text-center">
+      <h3>Natur-Less</h3>
+      <div class="natur-less-info">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consequat feugiat mauris,
+          eget elementum velit commodo in. Vestibulum convallis purus non tincidunt semper.
+          Morbi vulputate, libero eget lacinia blandit, tellus diam condimentum ex, nec ultrices
+          mauris nisi in eros.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  

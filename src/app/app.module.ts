@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AProposComponent } from './components/a-propos/a-propos.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { WalletComponent } from './components/wallet/wallet.component';
+import { CreditCardComponent } from './components/credit-card/credit-card.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { WalletComponent } from './components/wallet/wallet.component';
     AProposComponent,
     ProfilComponent,
     WalletComponent,
+    CreditCardComponent
   ],
   imports: [
     BrowserModule,
