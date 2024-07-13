@@ -1,0 +1,35 @@
+/* Form styles */
+
+/* Centrer le formulaire */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Hauteur de 100% de la vue pour centrer verticalement */
+}
+
+/* Style du formulaire */
+.custom-form {
+  width: 50%; /* Prend la largeur totale de son parent .form-container */
+  max-width: 400px; /* Largeur maximale du formulaire */
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #121197; /* Couleur bleue pour les labels */
+}
+
+.btn-primary {
+  width: 100%;
+}
+
+

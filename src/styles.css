@@ -24,10 +24,12 @@ app-header {
   
   /* Contenu principal (router-outlet) avec marge pour éviter qu'il ne soit couvert par les app-header et app-footer */
   .main-content {
-    margin-top: 10%; /* Ajoutez une marge équivalente à la hauteur de app-header */
-    margin-bottom: 10%; /* Ajoutez une marge équivalente à la hauteur de app-footer */
+    color: #ffffff; /* Couleur blanche (par exemple) */
+    margin-top: 5%; /* Ajoutez une marge équivalente à la hauteur de app-header */
+    margin-bottom: 5%; /* Ajoutez une marge équivalente à la hauteur de app-footer */
     height: 80%;
     overflow-y: auto; /* Ajoutez un défilement vertical si nécessaire */
+    background-color: #252525
   }
 
 

@@ -1,4 +1,29 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+
+  <form class="d-flex" role="search">
+    <ng-container *ngIf="!isLoggedIn(); else loggedInTemplate">
+      <!-- Affiche le nom de l'utilisateur et un bouton de déconnexion pour les utilisateurs connectés -->
+      
+     
+      
+      <!-- Boutons pour les utilisateurs non connectés -->
+      <a routerLink="/registration" class="nav-link btn btn-sm btn-outline-dark me-2">Register</a>
+      <a routerLink="/login" class="nav-link btn btn-sm btn-outline-dark">Login</a>
+    </ng-container>
+    <ng-template #loggedInTemplate>
+      <a  (click)="logout()" class="nav-link btn btn-sm btn-outline-dark">Logout</a>
+  <span class="nav-link">
+    Bienvenue, {{ getUserName() }}
+  </span>
+      <!-- Contenu spécifique aux utilisateurs connectés -->
+      <a routerLink="/user-profile" class="nav-link btn btn-sm btn-outline-dark me-2">Profile</a>
+      <!-- Ajoutez d'autres liens ou fonctionnalités ici -->
+    </ng-template>
+
+  </form>
+
+
     <div class="container-fluid">
       <!-- Profil à gauche -->
       <a class="navbar-brand me-auto" routerLink="/profil">Profil</a>

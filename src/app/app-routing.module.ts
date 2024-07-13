@@ -10,7 +10,8 @@ import { TradingComponent } from './components/trading/trading.component';
 import { PartenairesComponent } from './components/partenaires/partenaires.component';
 import { RaveprojectComponent } from './components/raveproject/raveproject.component';
 import { GlobalaccountComponent } from './components/globalaccount/globalaccount.component';
-
+import { LoginComponent } from './components/login/login.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,6 +24,8 @@ export const routes: Routes = [
   { path: 'partenaires', component: PartenairesComponent},
   { path: 'raveproject', component : RaveprojectComponent},
   { path :'globalaccount', component : GlobalaccountComponent},
+  { path :'login', component : LoginComponent},
+  { path :'registration', component : RegistrationComponent},
   { path: '**', redirectTo: '' }
 ];
 

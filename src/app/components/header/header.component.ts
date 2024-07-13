@@ -1,6 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 
+import { AuthService } from '../../services/auth.service'; // Assurez-vous d'avoir un service d'authentification
 
 @Component({
   selector: 'app-header',
@@ -12,9 +13,23 @@ export class HeaderComponent implements OnInit {
   public isMenuOpen: boolean = false;
 
   constructor(
-    @Inject(DOCUMENT) private doc: Document
+    @Inject(DOCUMENT) private doc: Document,
+    private authService: AuthService // Injectez votre service d'authentification
   ) {}
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    // Ajoutez toute initialisation nécessaire ici
+  }
+
+  isLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
+  }
+
+  logout() {
+    this.authService.logout();
+  }
+
+  getUserName(): string {
+    return this.authService.getUserName();
   }
 }
