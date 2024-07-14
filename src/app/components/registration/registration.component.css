@@ -1,4 +1,7 @@
 /* Form styles */
+h1 {
+  text-align: center; /* Centrer le contenu horizontalement */
+}
 
 /* Centrer le formulaire */
 .form-container {
@@ -31,5 +34,4 @@
 .btn-primary {
   width: 100%;
 }
-
 
