@@ -14,6 +14,7 @@ import { WalletComponent } from './components/wallet/wallet.component';
 import { CreditCardComponent } from './components/credit-card/credit-card.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { VendettaComponent } from "./components/vendetta/vendetta.component";
 
 @NgModule({
   declarations: [
@@ -34,8 +35,9 @@ import { RegistrationComponent } from './components/registration/registration.co
     FormsModule,
     ReactiveFormsModule, // Ajoutez cette ligne
     HttpClientModule,
-    RouterModule, // Assurez-vous que RouterModule est importé
-  ],
+    RouterModule,
+    VendettaComponent
+],
   providers: [],
   bootstrap: [AppComponent] // Assurez-vous qu'AppComponent est bien mentionné ici
 })

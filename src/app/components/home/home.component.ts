@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
   cancelEditing() {
     this.editedTotemPhrase = this.totemPhrase;
     this.editing = false;
-  }
+ } 
 
   // Méthode pour charger les transactions par carte
   loadCardTransactions() {
