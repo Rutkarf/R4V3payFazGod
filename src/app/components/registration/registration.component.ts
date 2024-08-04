@@ -2,11 +2,16 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.scss']
+  styleUrls: ['./registration.component.scss'],
+  standalone: true,
+  imports: [CommonModule, FormsModule] // Add necessary modules here
+  
 })
 export class RegistrationComponent {
   user = { username: '', password: '' };

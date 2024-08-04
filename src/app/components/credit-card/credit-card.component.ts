@@ -1,9 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { VendettaComponent } from "../vendetta/vendetta.component";
+
+
 
 @Component({
   selector: 'app-credit-card',
   templateUrl: './credit-card.component.html',
-  styleUrls: ['./credit-card.component.css']
+  styleUrls: ['./credit-card.component.css'],
+  standalone: true,
+  imports: [CommonModule, FormsModule, VendettaComponent] // Add necessary modules here
+ // Add necessary modules here
 })
 export class CreditCardComponent implements OnInit {
 

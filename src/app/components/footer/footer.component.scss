@@ -1,37 +1,70 @@
-/* styles.css ou styles.scss */
-
+/* Styles généraux pour le footer */
 footer {
-    background-color: #262626;
-    color: #ffffff;
-    padding: 20px 0; /* Ajustez le padding selon vos besoins */
-    text-align: center; /* Pour centrer les éléments horizontalement */
+  position: fixed; /* Fixe le footer en bas de l'écran */
+  bottom: 0; /* Positionne le footer au bas de l'écran */
+  left: 0; /* Aligne le footer à gauche */
+  width: 100%; /* Occupe toute la largeur de l'écran */
+  height: 10vh; /* Définit la hauteur à environ 10% de la hauteur de l'écran */
+  background-color: #262626; /* Couleur de fond du footer */
+  color: #ffffff; /* Couleur du texte */
+  display: flex; /* Utilisation de flexbox pour aligner le contenu */
+  align-items: center; /* Centre le contenu verticalement */
+  justify-content: center; /* Centre le contenu horizontalement */
+  padding: 0 10px; /* Padding horizontal */
+  box-sizing: border-box; /* Inclut le padding et la bordure dans la hauteur totale */
+  overflow: hidden; /* Évite le débordement du contenu */
+}
+
+/* Styles pour le conteneur des liens dans le footer */
+footer .d-flex {
+  display: flex; /* Utilisation de flexbox pour aligner les liens horizontalement */
+  justify-content: center; /* Centre les éléments horizontalement */
+  flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
+  gap: 10px; /* Espacement entre les éléments de flexbox */
+}
+
+/* Styles pour chaque lien */
+footer .d-flex a {
+  text-decoration: none; /* Supprime la décoration du texte des liens */
+  color: #ffffff; /* Couleur du texte par défaut */
+  text-align: center; /* Centre le texte sous l'image */
+  display: flex; /* Utilisation de flexbox pour aligner l'image et le texte */
+  flex-direction: column; /* Dispose l'image au-dessus du texte */
+  align-items: center; /* Centre l'image et le texte horizontalement */
+}
+
+/* Styles pour les images dans les liens */
+footer .d-flex a .icon {
+  width: 30px; /* Largeur réduite pour les icônes */
+  height: auto; /* Maintient le ratio d'aspect des images */
+  margin-bottom: 4px; /* Espacement entre l'image et le texte */
+}
+
+/* Styles pour le texte sous l'image */
+footer .d-flex a span {
+  font-size: 12px; /* Ajuste la taille de la police du texte */
+  display: block; /* Assure que le texte s'affiche sous l'image */
+}
+
+/* Effet hover pour les liens */
+footer .d-flex a:hover {
+  background-color: #ffffff; /* Couleur de fond au survol */
+  color: #262626; /* Couleur du texte au survol */
+}
+
+/* Styles pour les petits écrans */
+@media (max-width: 640px) {
+  footer .d-flex {
+      flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur des écrans plus petits */
   }
-  
-  footer .flex {
-    display: flex; /* Utilisation de flexbox pour les liens */
-    justify-content: center; /* Pour centrer les éléments horizontalement */
-  }
-  
-  footer .flex a {
-    text-decoration: none; /* Supprimez la décoration du texte des liens */
-    padding: 8px 16px; /* Ajustez le padding selon vos besoins */
-    border-radius: 4px; /* Pour des coins arrondis */
-    transition: background-color 0.3s, color 0.3s; /* Transition douce pour les effets hover */
-    margin: 0 10px; /* Espacement entre les liens */
-  }
-  
-  footer .flex a:hover {
-    background-color: #ffffff;
-    color: #262626;
-  }
-  
-  @media (max-width: 640px) {
-    footer .flex {
-      flex-wrap: wrap; /* Pour gérer le passage à la ligne des liens sur des écrans plus petits */
-    }
-  
-    footer .flex a {
+
+  footer .d-flex a {
       margin: 5px; /* Espacement entre les liens lorsque le flex-wrap est activé */
-    }
   }
+}
+
+
+
+
+
   

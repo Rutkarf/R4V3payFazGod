@@ -1,48 +1,45 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
-
   <form class="d-flex" role="search">
     <ng-container *ngIf="!isLoggedIn(); else loggedInTemplate">
-      <!-- Affiche le nom de l'utilisateur et un bouton de déconnexion pour les utilisateurs connectés -->
-      
-     
-      
-      <!-- Boutons pour les utilisateurs non connectés -->
       <a routerLink="/registration" class="nav-link btn btn-sm btn-outline-dark me-2">Register</a>
       <a routerLink="/login" class="nav-link btn btn-sm btn-outline-dark">Login</a>
     </ng-container>
     <ng-template #loggedInTemplate>
-      <a  (click)="logout()" class="nav-link btn btn-sm btn-outline-dark">Logout</a>
-  <span class="nav-link">
-    Bienvenue, {{ getUserName() }}
-  </span>
-      <!-- Contenu spécifique aux utilisateurs connectés -->
+      <a (click)="logout()" class="nav-link btn btn-sm btn-outline-dark">Logout</a>
+      <span class="nav-link">Bienvenue, {{ getUserName() }}</span>
       <a routerLink="/user-profile" class="nav-link btn btn-sm btn-outline-dark me-2">Profile</a>
-      <!-- Ajoutez d'autres liens ou fonctionnalités ici -->
     </ng-template>
-
   </form>
 
-
-    <div class="container-fluid">
-      <!-- Profil à gauche -->
-      <a class="navbar-brand me-auto" routerLink="/profil">Profil</a>
-      
-      <!-- RavePay au centre -->
-      <a class="navbar-brand mx-auto" routerLink="/a-propos">R4V3pay</a>
-      
-      <!-- Liens à droite -->
-      <div class="d-flex">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/wallet" routerLinkActive="active">Wallet</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/credit-card" routerLinkActive="active">Credit Card</a>
-          </li>
-        </ul>
-      </div>
+  <div class="container-fluid">
+    <a class="navbar-brand me-auto" routerLink="/profil">
+      <img src="../../assets/icon/king.png" alt="Profil Icon" class="nav-icon">
+      <div>Profil</div>
+    </a>
+    
+    <a class="navbar-brand mx-auto" routerLink="/a-propos">
+      <div>R4V3pay</div>
+    </a>
+    
+    <div class="d-flex">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item text-center">
+          <a class="nav-link" routerLink="/portfolio" routerLinkActive="active">
+            <img src="../../assets/icon/wallet.png" alt="Portfolio Icon" class="nav-icon">
+            <div>Portfolio</div>
+          </a>
+        </li>
+        <li class="nav-item text-center">
+          <a class="nav-link" routerLink="/credit-card" routerLinkActive="active">
+            <img src="../../assets/icon/credit-card.png" alt="Credit Card Icon" class="nav-icon">
+            <div>Credit Card</div>
+          </a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
+
+
   
   

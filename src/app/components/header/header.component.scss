@@ -19,37 +19,59 @@
   position: relative;
 }
 
-/* Style pour le lien de la marque */
-.nav-brand {
+/* Style pour les liens de la marque avec icône */
+.navbar-brand {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Style pour le logo */
-.nav-logo {
-  margin-right: 1rem;
-  height: 80px;
-}
-
-
-/* Style pour le titre de la navigation */
-.nav-title {
-  font-size: 1.25rem;
-  font-weight: 600;
+  text-align: center;
   color: #ffffff;
-  white-space: nowrap;
-  flex: 1; /* Ajout de cette ligne pour occuper l'espace disponible */
-  text-align: center; /* Centrage horizontal du texte */
+  text-decoration: none;
+  margin: 0 1rem; /* Espacement entre les éléments de la barre de navigation */
 }
 
+.navbar-brand .nav-icon {
+  width: 24px; /* Ajustez la taille selon vos besoins */
+  height: 24px; /* Ajustez la taille selon vos besoins */
+  margin-bottom: 0.5rem; /* Espacement entre l'icône et le texte */
+}
 
-/* Style pour les actions de navigation */
-.nav-actions {
+/* Style pour le texte sous les icônes */
+.navbar-brand div {
+  font-size: 0.875rem;
+}
+
+/* Style pour les éléments de navigation avec icônes */
+.nav-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  margin: 0 1rem; /* Espacement entre les éléments de la barre de navigation */
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav-link .nav-icon {
+  width: 24px; /* Ajustez la taille selon vos besoins */
+  height: 24px; /* Ajustez la taille selon vos besoins */
+  margin-bottom: 0.5rem; /* Espacement entre l'icône et le texte */
+}
+
+.nav-link div {
+  font-size: 0.875rem;
+}
+
+/* Style pour le lien actif */
+.nav-link.active {
+  color: #1638f9;
+  border-color: #f916d3;
 }
 
 /* Style pour les boutons de navigation */
@@ -68,22 +90,6 @@
   background-color: #f3f4f6;
 }
 
-/* Style pour le lien actif */
-.nav-link-active {
-  color: #fff;
-  background-color: #ffffff;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  padding: 0.5rem 1.25rem;
-  margin-right: 0.5rem;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.nav-link-active:hover {
-  background-color: #ffffff;
-}
-
 /* Style pour les liens de navigation */
 .nav-links {
   display: flex;
@@ -96,22 +102,8 @@
   align-items: center;
 }
 
-.nav-link {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: #ffffff;
-  border-bottom: 2px solid transparent;
-  cursor: pointer;
-  text-decoration: none;
-  transition: color 0.2s, border-color 0.2s;
-}
-
 .nav-link:hover {
   color: #ffffff;
   border-color: #ffffff;
 }
 
-.nav-link.active {
-  color: #1638f9;
-  border-color: #f916d3;
-}

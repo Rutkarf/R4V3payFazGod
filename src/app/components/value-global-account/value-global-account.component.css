@@ -1,0 +1,33 @@
+.value-global-account {
+    text-align: center; /* Centrage horizontal du contenu */
+    margin-top: 20px; /* Espacement par rapport à la section précédente */
+    background-color: #f3f4f6; /* Couleur de fond */
+    padding: 20px; /* Espacement interne */
+  
+    /* Style pour le titre "Value Global Account" */
+    h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333; /* Couleur du texte */
+      margin-bottom: 10px; /* Espacement en bas du titre */
+    }
+  
+    /* Style des lignes de compte */
+    .account-line {
+      display: flex;
+      justify-content: space-between; /* Espace équitablement les éléments */
+      margin-bottom: 10px; /* Espacement entre chaque ligne */
+    }
+  
+    /* Style pour les labels (F.I.A.T, R4V3 Token, Somme Globale) */
+    .label {
+      font-weight: bold;
+      color: #666; /* Couleur du texte */
+    }
+  
+    /* Style pour les valeurs (montants) */
+    .value {
+      font-weight: bold;
+      color: #333; /* Couleur du texte */
+    }
+  }

@@ -1,0 +1,31 @@
+.transaction-menu {
+    margin-bottom: 10px;
+  }
+  
+  .transaction-list {
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-height: 200px; /* Pour définir une hauteur maximale pour la liste des transactions */
+    overflow-y: auto; /* Ajouter une barre de défilement vertical si nécessaire */
+  }
+  
+  .transaction-item {
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+  }
+  
+  .transaction-details {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .transaction-date {
+    font-weight: bold;
+  }
+  
+  .transaction-amount {
+    font-weight: bold;
+    color: #1a73e8; /* Couleur bleue pour l'amount */
+  }

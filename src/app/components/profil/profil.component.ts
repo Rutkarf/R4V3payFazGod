@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-profil',
   templateUrl: './profil.component.html',
-  styleUrls: ['./profil.component.scss']
+  styleUrls: ['./profil.component.scss'],
+  standalone: true
 })
 export class ProfilComponent implements OnInit {
   user: any = {}; // Utilisez un type approprié pour votre utilisateur

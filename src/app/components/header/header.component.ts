@@ -1,12 +1,14 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service'; // Assurez-vous d'avoir un service d'authentification
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  standalone: true,
+  imports: [CommonModule]
 })
 export class HeaderComponent implements OnInit {
   isCollapsed = true;

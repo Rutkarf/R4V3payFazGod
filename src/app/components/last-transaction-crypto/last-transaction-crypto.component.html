@@ -1,0 +1,24 @@
+<!-- Section Dernières Transactions Crypto -->
+<div class="row align-items-center justify-content-center">
+    <div class="col-lg-8">
+      <div class="latest-transactions">
+        <h2>Dernières transactions crypto</h2>
+        <div class="transaction-list">
+          <div *ngFor="let transaction of cryptoTransactions" class="transaction-item">
+            <div class="transaction-details">
+              <span class="transaction-date">{{ transaction.date | date }}</span>
+              <span class="transaction-amount">{{ transaction.amount }} USD</span>
+            </div>
+          </div>
+        </div>
+        <div class="transaction-dropdown">
+          <label for="cryptoTransactionCount">Afficher :</label>
+          <select id="cryptoTransactionCount" [(ngModel)]="selectedCryptoTransactionCount" (ngModelChange)="loadCryptoTransactions()">
+            <option value="4">4 dernières transactions</option>
+            <option value="10">10 dernières transactions</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+

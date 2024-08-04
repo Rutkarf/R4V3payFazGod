@@ -1,0 +1,22 @@
+<!-- Section Dernières Transactions Carte -->
+<div class="row align-items-center justify-content-center">
+    <div class="col-lg-8">
+      <div class="latest-card-transactions">
+        <h2>Dernières transactions carte</h2>
+        <div class="transaction-menu">
+          <select [(ngModel)]="selectedCardTransactionCount" (ngModelChange)="loadCardTransactions()">
+            <option value="4">Afficher les 4 dernières transactions</option>
+            <option value="10">Afficher les 10 dernières transactions</option>
+          </select>
+        </div>
+        <div class="transaction-list">
+          <div *ngFor="let transaction of cardTransactions" class="transaction-item">
+            <div class="transaction-details">
+              <span class="transaction-date">{{ transaction.date | date }}</span>
+              <span class="transaction-amount">{{ transaction.amount }} EUR</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

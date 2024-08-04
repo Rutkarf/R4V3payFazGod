@@ -1,30 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { TotemphraseComponent } from '../totemphrase/totemphrase.component';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { LastTransactionCardComponent } from "../last-transaction-card/last-transaction-card.component";
-import { LastTransactionCryptoComponent } from "../last-transaction-crypto/last-transaction-crypto.component";
-import { VendettaComponent } from "../vendetta/vendetta.component";
-import { ValueGlobalAccountComponent } from "../value-global-account/value-global-account.component";
-@Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  standalone: true,
-  imports: [CommonModule, FormsModule, LastTransactionCardComponent, LastTransactionCryptoComponent, VendettaComponent, ValueGlobalAccountComponent, TotemphraseComponent] // Add necessary modules here
- // Add necessary modules here
- // Add necessary modules here
- // Add necessary modules here
- // Add necessary modules here
- // Add necessary modules here
-  
-})
-export class HomeComponent implements OnInit {
+import { CommonModule } from '@angular/common';
 
-  // Propriétés existantes
-  totemPhrase: string = "Votre phrase totem ici";
-  editedTotemPhrase: string = "";
-  editing: boolean = false;
+@Component({
+  selector: 'app-last-transaction-card',
+  standalone: true,
+  imports: [CommonModule, FormsModule], // Ajoutez les modules nécessaires ici
+  templateUrl: './last-transaction-card.component.html',
+  styleUrls: ['./last-transaction-card.component.css']
+})
+export class LastTransactionCardComponent {
   fiatAmount: number = 1000;
   r4v3TokenAmount: number = 500;
   totalAmount: number = this.fiatAmount + this.r4v3TokenAmount;
@@ -43,22 +28,6 @@ export class HomeComponent implements OnInit {
     this.loadCardTransactions();
     this.loadCryptoTransactions();
   }
-
-  // Méthodes existantes
-  startEditing() {
-    this.editedTotemPhrase = this.totemPhrase;
-    this.editing = true;
-  }
-
-  saveTotemPhrase() {
-    this.totemPhrase = this.editedTotemPhrase;
-    this.editing = false;
-  }
-
-  cancelEditing() {
-    this.editedTotemPhrase = this.totemPhrase;
-    this.editing = false;
- } 
 
   // Méthode pour charger les transactions par carte
   loadCardTransactions() {
@@ -104,4 +73,5 @@ export class HomeComponent implements OnInit {
     return transactions.slice(0, count);
   }
 }
+
 
